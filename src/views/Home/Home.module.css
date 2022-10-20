@@ -1,0 +1,98 @@
+.slideCardImg {
+    min-height: 540px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 22px;
+}
+.slideCardImg {
+    height: 100%;
+}
+.slideDetails {
+    position: absolute;
+    bottom: 70px;
+    padding: 40px 70px;
+}
+.slideTitle {
+    color: #fff;
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.swiperHeader {
+    border-radius: 22px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.slideCardImg video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.benefitsContainer {
+    padding: 100px 0;
+    background: #18669d;
+}
+.benefitsTitle {
+    color: #363636;
+    font-size: 35px;
+    margin-bottom: 60px;
+    font-weight: 700;
+    color: #fff;
+}
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 12.52rem;
+    gap: 30px;
+    text-align: center;
+}
+.benefitCardFlag {
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+}
+.benefitCardTitle {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 7px;
+    color: #fff;
+}
+.benefitCardText {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #eee;
+}
+.categories {
+    padding: 100px 0;
+}
+.catsGrid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-gap: 12.52rem;
+    gap: 20px;
+}
+.catTitle {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 60px;
+}
+.titleLine {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    background: #18669d;
+    width: 90px;
+    height: 6px;
+}
+.catCard {
+    padding: 50px 30px;
+    background: #fff;
+    box-shadow: 0px 2px 11px #5c5c5c14;
+    border-radius: 10px;
+}

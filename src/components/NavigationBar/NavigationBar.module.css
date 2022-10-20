@@ -1,0 +1,42 @@
+.item a,
+.searchIcon:hover .icon {
+    transition: all 0.2s ease-in-out;
+}
+.navContainer {
+    background: #fff;
+    box-shadow: 0px 0px 40px #5c5c5c1a;
+    padding: 16px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+
+}
+.flexable {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logoImg {
+    width: 60px;
+}
+.brandTitle {
+    margin-left: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #3c7095;
+    line-height: 1;
+}
+.item {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 13px;
+}
+.item:hover a,
+.searchIcon:hover .icon {
+    color: #2693e1;
+}
+.searchIcon .icon {
+    font-size: 21px;
+    font-weight: 500;
+} 
