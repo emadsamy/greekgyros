@@ -78,3 +78,31 @@ a:hover {
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 30px;
 }
+.product-swiper .swiper-pagination-bullet {
+  width: 15px;
+}
+.product-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 35px;
+  background: #fff;
+}
+.swiper-pros-hom > .swiper-pagination {
+  position: relative;
+    bottom: 0;
+    padding-top: 24px;
+}
+.swiper-pros-hom > .swiper-pagination .swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 11px #5c5c5c14;
+}
+.swiper {
+  opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    -webkit-transition: opacity 1s ease;
+}
+.swiper.swiper-initialized {
+  visibility: visible;
+    opacity: 1;  
+}

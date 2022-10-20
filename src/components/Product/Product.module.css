@@ -1,0 +1,97 @@
+.product {
+    border-radius: 22px 22px;
+    overflow: hidden;
+    box-shadow: 0px 2px 11px #5c5c5c14;
+    position: relative;
+}
+.proImg {
+    height: 230px !important;
+    width: 100% !important;
+    object-fit: cover;
+    border-radius: 22px 22px 0 0;
+}
+.proView {
+    border-bottom: 8px solid #18669d;
+    /* border-bottom: 8px solid #11293a; */
+}
+.details {
+    padding: 24px;
+    background: #fff;
+}
+.title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 7px;
+    word-wrap: break-word;
+}
+.description {
+    word-wrap: break-word;
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 12px;
+}
+.priceCard {
+    margin-bottom: 17px;
+}
+.price {
+    position: relative;
+    font-weight: 700;
+    font-size: 20px;
+    display: inline-block;
+}
+.currency {
+    position: absolute;
+    font-size: 13px;
+    top: 0;
+    left: 110%;
+    font-weight: 900;
+}
+.action button {
+    width: 100%;
+    padding: 13px;
+}
+
+.category {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 10;
+    background: #fff;
+    padding: 4px 13px 4px 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.catImg {
+    width: 25px;
+    height: 25px !important;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.catTitle {
+    margin-left: 7px;
+    line-height: 1;
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+.category:hover {
+    background: #18669d;
+}
+.category:hover .catTitle  {
+    color: #fff;
+}
+.category:active {
+    opacity: 0.7;
+}
+.special {
+    position: absolute;
+    left: 0;
+    top: 216px;
+    background: linear-gradient(to right, #f85032, #e73827);
+    z-index: 8;
+    padding: 8px 17px;
+    border-radius: 0  50px 50px 0;
+    color: #fff;
+    line-height: 1;
+}

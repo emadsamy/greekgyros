@@ -71,9 +71,9 @@
 }
 .catsGrid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 12.52rem;
-    gap: 20px;
+    gap: 22px;
 }
 .catTitle {
     font-size: 40px;
@@ -91,8 +91,64 @@
     height: 6px;
 }
 .catCard {
-    padding: 50px 30px;
+    padding:  15px 20px;
     background: #fff;
     box-shadow: 0px 2px 11px #5c5c5c14;
     border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+.catCardImg {
+    width: 70px;
+    height: 70px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 2px 11px #5c5c5c14;
+    transition: all 0.2s ease-in-out;
+    border: 3px solid #eeeeeea6;
+    position: relative;
+    margin-right: 17px;
+}
+.catCardTitle {
+    font-size: 24px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+.catCard:hover .catHover {
+    background: #18669d;
+    height: 100%;
+}
+.catCard:hover .catCardTitle {
+    color: #fff;
+}
+.catCard:active {
+    transform: translateY(-15px);
+}
+.catHover {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background: #18669d;
+    transition: all 0.2s ease-in-out;
+}
+.products {
+    background: #ccc;
+    padding: 80px 0;
+    background-size: cover;
+    background-position: center left;
+}
+.productTitle {
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+.proGrid {
+    /* display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 12.52rem;
+    gap: 13px; */
 }

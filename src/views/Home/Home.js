@@ -6,6 +6,7 @@ import { NavigationBar } from '../../components/index';
 import { Header } from './Header';
 import { Benefits } from './Benefits';
 import { Categories } from './Categories';
+import { Products } from './Products';
 
 const Home = (props) => {
     useEffect(() => {
@@ -18,6 +19,7 @@ const Home = (props) => {
                 <Header />
                 <Benefits />
                 <Categories />
+                <Products />
             </div>
         </>
     );
