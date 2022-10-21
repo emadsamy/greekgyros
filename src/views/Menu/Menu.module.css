@@ -1,7 +1,7 @@
 .header {
     padding: 80px 70px;
     background: #2282c6;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     border-radius: 26px;
     background-repeat: no-repeat;
     background-size: 100% cover;
@@ -31,4 +31,67 @@
 }
 .headerAction button:active {
     opacity: 0.5 !important;
+}
+.subTitle {
+    color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+.catsGrid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-gap: 12.52rem;
+    gap: 20px;
+    text-align: center;
+}
+.catRow {
+    position: relative;
+    background: #E6E6E6;
+    border-radius: 14px;
+    padding: 40px 20px 40px;
+    box-shadow: 0px 5px 30px #5c5c5c0d;
+    cursor: pointer;
+    transition: all 0.27s ease-in-out;
+    background-size: 100px 100px;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+.crImgBg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100px !important;
+    object-fit: cover;
+    z-index: 3;
+    opacity: 0.3;
+}
+.crImg {
+    width: 75px;
+    height: 75px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 3px solid #fff; */
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 10;
+}
+.crTitle {
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.27s ease-in-out;
+    position: relative;
+    z-index: 10;
+}
+.catRow:hover {
+    background-color: #2282c6;
+    transform: translateY(-15px);
+}
+.catRow:hover .crTitle {
+    color: #fff;
+}
+.catRow:active {
+    opacity: 0.6;
 }
