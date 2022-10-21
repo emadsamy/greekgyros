@@ -2,16 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
 import axios from 'axios';
 import classes from './Home.module.css';
-import { NavigationBar } from '../../components/index';
+import { NavigationBar, Footer } from '../../components/index';
 import { Header } from './Header';
 import { Benefits } from './Benefits';
 import { Categories } from './Categories';
 import { Products } from './Products';
 
 const Home = (props) => {
-    useEffect(() => {
-        
-    }, []);
     return (
         <>
             <NavigationBar />
@@ -20,6 +17,7 @@ const Home = (props) => {
                 <Benefits />
                 <Categories />
                 <Products />
+                <Footer />
             </div>
         </>
     );

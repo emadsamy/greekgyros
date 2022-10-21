@@ -23,6 +23,7 @@ const NavigationBar = () => {
                             </div>
                             <div className={classes.right}>
                                 <div className={`${classes.items} fc`}>
+                                    <div className={classes.item}><NavLink to="/">Home</NavLink></div>
                                     <div className={classes.item}><NavLink to="/menu">Menu</NavLink></div>
                                     <div className={classes.item}><NavLink to="/about">About</NavLink></div>
                                     <div className={classes.item}><NavLink to="/contact">Contact</NavLink></div>

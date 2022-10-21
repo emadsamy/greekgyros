@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?b8rppb');
-  src:  url('fonts/icomoon.eot?b8rppb#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?b8rppb') format('truetype'),
-    url('fonts/icomoon.woff?b8rppb') format('woff'),
-    url('fonts/icomoon.svg?b8rppb#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?dbjv8u');
+  src:  url('fonts/icomoon.eot?dbjv8u#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?dbjv8u') format('truetype'),
+    url('fonts/icomoon.woff?dbjv8u') format('woff'),
+    url('fonts/icomoon.svg?dbjv8u#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-facebook:before {
+  content: "\e90a";
+}
+.icon-instagram:before {
+  content: "\e913";
+}
+.icon-twitter:before {
+  content: "\e914";
+}
 .icon-arrow-bottom:before {
   content: "\e900";
 }
@@ -54,9 +63,6 @@
 }
 .icon-exclamation:before {
   content: "\e909";
-}
-.icon-facebook:before {
-  content: "\e90a";
 }
 .icon-heart-empty:before {
   content: "\e90b";

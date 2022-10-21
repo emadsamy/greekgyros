@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
 import axios from 'axios';
 import classes from './Home.module.css';
@@ -14,7 +14,7 @@ import FoodBg from '../../assets/img/food_bg.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay  } from 'swiper';
 import 'swiper/css';
-import 'swiper/css/navigation';
+// import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
@@ -65,6 +65,7 @@ const Products = (props) => {
                                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay ]}
                                 spaceBetween={12}
                                 slidesPerView={4}
+                                updateOnWindowResize
                                 navigation={{
                                     prevEl: '',
                                     nextEl: '',
@@ -75,10 +76,10 @@ const Products = (props) => {
                                 onSwiper={(swiper) => console.log(swiper)}
                                 onSlideChange={() => console.log('slide change')}
                                 loop={true}
-                                // autoplay={{
-                                //     delay: 3500,
-                                //     disableOnInteraction: false
-                                // }} 
+                                autoplay={{
+                                    delay: 3500,
+                                    disableOnInteraction: false
+                                }} 
                                 speed={700}
                                 className={`swiper-pros-hom`}
                             >
