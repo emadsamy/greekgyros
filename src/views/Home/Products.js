@@ -53,6 +53,11 @@ const Products = (props) => {
             fav: ''
         },
     ]);
+
+    const funcHandle = (id, name) => {
+        console.log(id, name);
+    }
+
     return (
         <>
             <div style={{backgroundImage: `url(${FoodBg})`}} className={classes.products}>
@@ -86,7 +91,7 @@ const Products = (props) => {
                                 {
                                     items.map((row, index) => {
                                         return <SwiperSlide className={classes.swipersss}>
-                                            <Product title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />
+                                            <Product onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />
                                         </SwiperSlide>;
                                     })
                                 }

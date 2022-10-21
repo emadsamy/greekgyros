@@ -15,11 +15,12 @@
 .link {
     margin-bottom: 11px;
     font-size: 17px;
+    text-decoration: none;
 }
 .link a {
     color: #666;
 }
-.link:hover a {
+.link a:hover {
     text-decoration: underline;
     color: #000;
     display: inline-block;
@@ -49,4 +50,30 @@
     padding: 35px 20px;
     border-top: 1px solid #eee;
     font-size: 17px;
+}
+.locationDetails {
+    padding-top: 40px;
+}
+.locationRow {
+    margin-bottom: 20px;
+}
+.liRow {
+    line-height: 1;
+    color: #666;
+    font-size: 16px;
+    width: auto;
+    display: inline-flex;
+}
+.liRow:hover {
+    color: #000;
+}
+.liRow:hover .lrValue {
+    text-decoration: underline;
+}
+.locationIcon {
+    font-size: 20px;
+    margin-right: 13px;
+    position: relative;
+    top: 2px;
+    width: 22px;
 }

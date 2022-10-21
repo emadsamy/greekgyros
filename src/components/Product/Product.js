@@ -13,6 +13,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const Product = (props) => {
+    
+    const handleLangChange = (id, title) => {
+        props.onSelectLanguage(id, title);            
+    }
+
     return (
         <>
             <div className={classes.product}>
@@ -67,7 +72,7 @@ const Product = (props) => {
                             <div className={classes.price}>{props.price} <div className={classes.currency}>RUB</div> </div> 
                         </div>
                         <div className={classes.action}>
-                            <button className={`btn main-btn`}> View More</button>
+                            <button onClick={() => handleLangChange(props.id, props.title)} className={`btn main-btn`}> View More</button>
                         </div>
                     </div>
                 </div>
