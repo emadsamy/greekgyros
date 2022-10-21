@@ -1,105 +1,34 @@
-.breadcrumb {
-    display: flex;
-    align-items: center;
-}
-.breadcrumbHeader {
-    padding-bottom: 23px;
-    border-bottom: 1px solid #eee;
-}
-.breadLi,
-.breadLiActive {
-    margin-right: 5px;
-    font-size: 17px;
-}
-.breadLi:hover a {
-    color: #18669d !important;
-}
-.breadLiActive {
-    color: #777;
-}
-/* .contactContainer {
-    padding-bottom: 70px;
-} */
-.location {
-    padding: 40px 0 100px;
-}
-.mainTitle {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-.map {
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0px 0px 30px #5c5c5c1a;
-}
-.map iframe {
-    width: 100%;
-    height: 500px;
-}
-.detailsBg {
-    padding: 80px;
+.header {
+    padding: 80px 70px;
     background: #2282c6;
-}
-.subTitle {
-    font-size: 33px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 10px;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-gap: 12.52rem;
-    gap: 33px;
-}
-.desc {
-    color: #eee;
-    font-size: 16px;
-}
-.locationDetails {
-    padding-top: 100px;
-}
-.subTitle2 {
-    font-size: bold;
-    font-size: 29px;
-    color: #fff;
-    margin-bottom: 30px;
-}
-.locationRow {
-    margin-bottom: 20px;
-}
-.liRow {
-    line-height: 1;
-    color: #ebe4e4;
-    font-size: 17px;
-    width: auto;
-    display: inline-flex;
-}
-.liRow:hover {
-    color: #fff;
-}
-.liRow:hover .lrValue {
-    text-decoration: underline;
-}
-.locationIcon {
-    font-size: 20px;
-    margin-right: 13px;
-    position: relative;
-    top: 2px;
-    width: 22px;
-}
-.form {
-    background: #fff;
-    padding: 45px 40px;
-    border-radius: 16px;
+    margin-bottom: 40px;
+    border-radius: 26px;
+    background-repeat: no-repeat;
+    background-size: 100% cover;
+    background-position: right ;
     box-shadow: 0px 2px 11px #5c5c5c14;
 }
-.action {
-    padding-top: 20px;
-    text-align: center;
+.mainTitle {
+    font-size: 43px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 7px;
 }
-.action button {
-    padding: 12px 40px;
-    margin: auto;
+.mainDesc {
+    color: #eee;
+    line-height: 1.7;
+}
+.headerAction {
+    margin-top: 40px;
+}
+.headerAction button {
+    background: #fff;
+    color: #2282c6;
+}
+.headerAction button:hover {
+    background: #edeaea !important;
+    color: #2282c6 !important;
+}
+.headerAction button:active {
+    opacity: 0.5 !important;
 }

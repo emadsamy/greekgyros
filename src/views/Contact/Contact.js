@@ -3,10 +3,14 @@ import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
 import axios from 'axios';
 import classes from './Contact.module.css';
 import { NavigationBar, Footer } from '../../components/index';
+import {Helmet} from "react-helmet";
 
 const Contact = (props) => {
     return (
         <>
+            <Helmet>
+                <title>Contact Us</title>
+            </Helmet>
             <NavigationBar />
             <div className={classes.contact}>
                 <div className={classes.wrapperContainer}>
