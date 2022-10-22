@@ -12,7 +12,7 @@ const Header = (props) => {
             <div style={{backgroundImage: `url(${MenuBg})`}} className={classes.header}>
                 <div className={classes.mainTitle}>Discover & Order you love.</div>
                 <div className={classes.mainDesc}>
-                    Get Food and drinks delivered from amazing Greek Gyros.
+                    Get Food and drinks delivered from amazing Greek Gyros {';)'}
                     <br />
                     Don't stand in line - order Online!
                     <br />

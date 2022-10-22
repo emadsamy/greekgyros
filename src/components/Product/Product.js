@@ -5,6 +5,10 @@ import classes from './Product.module.css';
 import Coffee from '../../assets/img/menu/coffee.jpg';
 import Food from '../../assets/img/menu/food.jpeg';
 import Pizza from '../../assets/img/menu/pizza.jpeg';
+
+import FoodIc from '../../assets/img/food.png';
+import Drinks from '../../assets/img/drinks.png';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay  } from 'swiper';
 import 'swiper/css';
@@ -26,7 +30,7 @@ const Product = (props) => {
                 }
                 <NavLink to="/category">
                     <div className={`${classes.category} fc`}>
-                        <img className={`${classes.catImg} img-fluid`} src={Food} alt="Food" />
+                        <img className={`${classes.catImg} img-fluid`} src={FoodIc} alt="Food" />
                         <div className={classes.catTitle}>{props.category}</div>
                     </div>
                 </NavLink>

@@ -1,5 +1,6 @@
 .footer {
     padding: 100px 0 70px;
+    border-top: 1px solid #eee;
 }
 .grid {
     display: grid;
