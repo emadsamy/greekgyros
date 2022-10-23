@@ -12,13 +12,13 @@ import MenuBg from '../../assets/img/menu.png';
 import Coffee from '../../assets/img/menu/coffee.jpg';
 import FoodPro from '../../assets/img/menu/food.jpeg';
 import Pizza from '../../assets/img/menu/pizza.jpeg';
-import { Product, Category } from '../../components/index';
+import { Product } from '../../components/index';
 
 const Menu = (props) => {
     const [isActive, setActive] = useState(0);
-    const onActiveClass = (id) => {
+    const handleClassToggle = (id) => {
         setActive(id);
-        // console.log(id);
+        console.log(id);
     };
     const funcHandle = (id, name) => {
         console.log(id, name);
@@ -99,15 +99,20 @@ const Menu = (props) => {
                         <div className={classes.categories}>
                             <div className={classes.subTitle}>Choose Category!</div>
                             <div className={classes.catsGrid}>
-                                <Category id="0" isActive={isActive} select={Select} title={'All'} type="all" />
-                                {/* <div onClick={() => handleClassToggle(0)} className={`${classes.catRow} ${isActive == 0 && classes.activeCat}`}>
+                                <div onClick={() => handleClassToggle(0)} className={`${classes.catRow} ${isActive == 0 && classes.activeCat}`}>
                                     <img className={`img-fluid ${classes.crImg} ${classes.selectAll}`} src={Select} alt={'Category'} />
                                     <div className={classes.crTitle}>All</div>
-                                </div> */}
+                                </div>
                                 {
                                     categories.map((row, index) => {
-                                        return <Category onActiveClass={onActiveClass} isActive={isActive} id={row.id} title={row.title} type={row.type} />;
-                                    })   
+                                        return (
+                                            <div key={index} onClick={() => handleClassToggle(row.id)} className={`${classes.catRow} ${isActive == row.id && classes.activeCat}`}>
+                                                {row.type == 'food' ? <img className={`img-fluid ${classes.crImg}`} src={Food} alt={row.title} /> : '' }
+                                                {row.type == 'drinks' ? <img className={`img-fluid ${classes.crImg}`} src={Drinks} alt={row.title} /> : '' }
+                                                <div className={classes.crTitle}>{row.title}</div>
+                                            </div>
+                                        )
+                                    })
                                 }
                             </div>
                         </div>
@@ -122,7 +127,7 @@ const Menu = (props) => {
                                     })
                                 }
 
-                                {
+{
                                     items.map((row, index) => {
                                         return <Product onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
                                     })

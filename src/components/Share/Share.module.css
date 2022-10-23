@@ -1,0 +1,55 @@
+.modalContainer > div {
+    width: 500px;
+    max-width: 100%;
+}
+.shareView {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+.proImg {
+    max-width: 100%;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 17px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.mainTitle {
+    font-size: 23px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+}
+.title {
+    font-size: 19px;
+    color: rgb(34, 34, 34);
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 12.52rem;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.btn {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-weight: 600 !important;
+    overflow: hidden !important;
+    color: rgb(34, 34, 34) !important;
+    text-overflow: ellipsis !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    border: 1px solid rgb(221, 221, 221) !important;
+    padding: 14px 17px !important;
+}
+.imgBtn {
+    width: 32px !important;
+    height: 32px !important;
+    margin-right: 10px;
+}
+.btn:hover {
+    background: #eeeeee99 !important;
+}

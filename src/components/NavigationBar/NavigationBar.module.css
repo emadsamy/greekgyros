@@ -32,6 +32,9 @@
     font-weight: 600;
     margin: 0 13px;
 }
+.item:last-of-type {
+    margin-right: 0;
+}
 .item:hover a,
 .searchIcon:hover .icon {
     color: #2693e1;

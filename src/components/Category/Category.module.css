@@ -1,0 +1,50 @@
+.catRow {
+    position: relative;
+    background: #E6E6E6;
+    border-radius: 14px;
+    padding: 40px 20px 40px;
+    box-shadow: 0px 5px 30px #5c5c5c0d;
+    cursor: pointer;
+    transition: all 0.27s ease-in-out;
+    background-size: 100px 100px;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+.crImg {
+    width: 90px;
+    height: 90px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 10;
+    transition: all 0.27s ease-in-out;
+}
+.catRow:first-of-type .crImg {
+    border: none;
+}
+.crTitle {
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.27s ease-in-out;
+    position: relative;
+    z-index: 10;
+}
+.catRow:hover,
+.catRow.activeCat {
+    background-color: #2282c6;
+    transform: translateY(-12px);
+}
+.catRow:hover .crTitle,
+.catRow.activeCat .crTitle {
+    color: #fff;
+}
+.catRow:active {
+    opacity: 0.6;
+}
+.catRow:hover .selectAll,
+.catRow.activeCat .selectAll {
+    filter: invert();
+}

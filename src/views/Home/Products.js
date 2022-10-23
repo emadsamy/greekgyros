@@ -63,7 +63,7 @@ const Products = (props) => {
             <div style={{backgroundImage: `url(${FoodBg})`}} className={classes.products}>
                 <div className={`container`}>
                     <div className={`${classes.productsContainer}`}>
-                        <div className={`${classes.productTitle} text-center`}>Our Products</div>
+                        <div className={`${classes.productTitle} text-center`}>Our Menu</div>
                         <div className={classes.proGrid}>
 
                             <Swiper

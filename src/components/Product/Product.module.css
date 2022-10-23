@@ -86,12 +86,12 @@
 }
 .special {
     position: absolute;
-    left: 0;
-    top: 216px;
+    left: 20px;
+    top: 20px;
     background: linear-gradient(to right, #f85032, #e73827);
     z-index: 8;
     padding: 8px 17px;
-    border-radius: 0  50px 50px 0;
+    border-radius: 50px;
     color: #fff;
     line-height: 1;
 }

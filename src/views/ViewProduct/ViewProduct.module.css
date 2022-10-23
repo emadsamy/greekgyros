@@ -1,0 +1,65 @@
+.menu {
+    padding-bottom: 80px;
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+}
+.breadcrumbHeader {
+    padding-bottom: 15px;
+}
+.breadLi,
+.breadLiActive {
+    margin-right: 5px;
+    font-size: 17px;
+}
+.breadLi:hover a {
+    color: #18669d !important;
+}
+.breadLiActive {
+    color: #777;
+}
+.callBtn {
+    width: 38px;
+    height: 38px;
+    margin-left: 10px;
+}
+.callBtn span {
+    margin: 0 !important;
+}
+.swiperGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 12.52rem;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.swiperGrid > div {
+    height: 430px;
+    overflow: hidden;
+}
+.itemSlide {
+    background: #080;
+}
+.slideItemImg {
+    height: 430px !important;
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 22px;
+}
+.imgSlThumb {
+    height: 100% !important;
+    width: 100%;
+    border-radius: 22px;
+}
+.itemSlideThumb {
+    height: calc(205px) !important;
+} 
+.itemTitle {
+    font-size: 37px;
+    font-weight: 600;
+}
+.itemDesc {
+    font-size: 17px;
+}

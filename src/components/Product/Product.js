@@ -76,7 +76,16 @@ const Product = (props) => {
                             <div className={classes.price}>{props.price} <div className={classes.currency}>RUB</div> </div> 
                         </div>
                         <div className={classes.action}>
-                            <button onClick={() => handleLangChange(props.id, props.title)} className={`btn main-btn`}> View More</button>
+                            <NavLink to={`/view-product/${props.id}`} 
+                                    state={{ 
+                                        proTitle: props.title, 
+                                        proId: props.id, 
+                                        proImage: props.image[0],
+                                        proDesc: props.description
+                                    }} 
+                                    className={`btn main-btn`}>
+                                     View More
+                            </NavLink>
                         </div>
                     </div>
                 </div>
