@@ -71,9 +71,10 @@
 }
 .catsGrid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     grid-gap: 12.52rem;
-    gap: 22px;
+    gap: 20px;
+    text-align: center
 }
 .catTitle {
     font-size: 40px;
@@ -145,6 +146,7 @@
     margin-bottom: 35px;
 }
 .proGrid {
+    position: relative;
     /* display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 12.52rem;

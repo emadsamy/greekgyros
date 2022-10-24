@@ -184,6 +184,53 @@ a:hover {
   margin: 0;
   padding: 3px;
 }
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}
+.css-1s2u09g-control {
+  box-shadow: rgb(0 0 0 / 9%) 0px 3px 12px;
+  border: none !important
+}
+.css-1s2u09g-control {
+  border-radius: 7px !important;
+  padding: 0 !important;
+}
+.css-319lph-ValueContainer {
+  /* padding: 3px !important; */
+}
+.btn.main-btn.active {
+  color: #fff;
+}
+.arrow-s-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: absolute;
+  top: 44%;
+  transform: translateY(-50%);
+  z-index: 10;
+  left: -20px;
+  color: #000;
+}
+.next-ss-pros {
+  right: -20px;
+  left: auto;
+}
+.arrow-s-circle .icon {
+  font-weight: bold;
+}
+.arrow-s-circle:hover {
+  background: #2282c6;
+  color: #fff;
+}
+.arrow-s-circle:active {
+  opacity: 0.7;
+}
 /* .swiper-container-multirow-column > .swiper-wrapper {
   flex-direction: column;
 } */

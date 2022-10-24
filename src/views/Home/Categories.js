@@ -2,35 +2,36 @@ import React, {useEffect, useState} from 'react';
 import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
 import axios from 'axios';
 import classes from './Home.module.css';
-import Food from '../../assets/img/food.jpeg';
+import { Category } from '../../components/index';
 
 const Categories = (props) => {
-    const [items, setItems] = useState([
+
+    const [categories, setCategories] = useState([
         {
             id: 1,
-            image: Food,
-            title: 'Food'
+            title: 'Food',
+            type: 'food',
         },
         {
             id: 2,
-            image: Food,
-            title: 'Shawerma'
+            title: 'Drinks',
+            type: 'drinks',
         },
         {
             id: 3,
-            image: Food,
-            title: 'Drinks'
+            title: 'Food',
+            type: 'food',
         },
         {
             id: 4,
-            image: Food,
-            title: 'Coffes'
+            title: 'Drinks',
+            type: 'drinks',
         },
         {
             id: 5,
-            image: Food,
-            title: 'Food'
-        }
+            title: 'Food',
+            type: 'food',
+        },
     ]);
     return (
         <>
@@ -42,16 +43,10 @@ const Categories = (props) => {
                     </div>
                     <div className={classes.catsGrid}>
                         {
-                            items.map((row, index) => {
-                                return (
-                                    <NavLink to="/categories" className={`${classes.catCard} fc`}>
-                                        <div className={classes.catHover}></div>
-                                        <img className={`img-fluid ${classes.catCardImg}`} src={row.image} alt={'food'} />
-                                        <div>
-                                            <div className={classes.catCardTitle}>{row.title}</div>
-                                        </div>
-                                    </NavLink>
-                                );
+                            categories.map((row, index) => {
+                                return <NavLink to="/menu" state={{catId: row.id}}>
+                                    <Category key={index} id={row.id} title={row.title} type={row.type} />
+                                </NavLink>;
                             })
                         }
                     </div>

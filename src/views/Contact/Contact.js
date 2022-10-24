@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Suspense} from 'react';
 import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
 import axios from 'axios';
 import classes from './Contact.module.css';
@@ -28,7 +28,9 @@ const Contact = (props) => {
                             <div className={`container`}>
                                 <div className={classes.mainTitle}>Our Address</div>
                                 <div className={classes.map}>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511634.70987306157!2d30.655057484613444!3d59.93922589518761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696378cc74a65ed%3A0x6dc7673fab848eff!2z2LPYp9mG2Kog2KjYt9ix2LPYqNix2LrYjCDYsdmI2LPZitin!5e0!3m2!1sar!2seg!4v1666358041095!5m2!1sar!2seg" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                                    <Suspense fallback="Loading...">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511634.70987306157!2d30.655057484613444!3d59.93922589518761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696378cc74a65ed%3A0x6dc7673fab848eff!2z2LPYp9mG2Kog2KjYt9ix2LPYqNix2LrYjCDYsdmI2LPZitin!5e0!3m2!1sar!2seg!4v1666358041095!5m2!1sar!2seg" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                                    </Suspense>
                                 </div>
                             </div>
                         </div>

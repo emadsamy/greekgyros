@@ -6,6 +6,7 @@ import { NavigationBar, Footer } from '../../components/index';
 import {Helmet} from "react-helmet";
 import { Product, Share } from '../../components/index';
 import { Items } from './Items';
+import { OtherItems } from './OtherItems';
 
 const ViewProduct = (props) => {
     const location = useLocation();
@@ -14,13 +15,14 @@ const ViewProduct = (props) => {
     const { proId } = location.state;
     const { proImage } = location.state;
     const [shareModal, setShareModal] = useState(false);
+    const [deliveryModal, setDeliveryModal] = useState(false);
 
     return (
         <>
             <Helmet>
                 <title>{proTitle}</title>
             </Helmet>
-            <NavigationBar />
+            <NavigationBar deliveryModal={deliveryModal} onHide={() => setDeliveryModal(false)} />
             <Share show={shareModal} onHide={() => setShareModal(false)} img={proImage} title={proTitle} />
             <div className={classes.menu}>
                 <div className={classes.wrapperContainer}>
@@ -41,12 +43,23 @@ const ViewProduct = (props) => {
                     </div>
 
                     <div className={`container`}>
-                        <div className={classes.swiperGrid}>
-                            <Items />
+                        <div className={classes.productDetials}>
+                            <div className={classes.swiperGrid}>
+                                <Items />
+                            </div>
+                            <div className={classes.details}>
+                                <div className={classes.itemTitle}>{proTitle}</div>
+                                <div className={classes.itemDesc}>{proDesc}</div>
+                                <div className={classes.priceCard}>
+                                    <span>Price: </span>
+                                    <div className={classes.price}>150 <div className={classes.currency}>RUB</div> </div> 
+                                </div>
+                                <button onClick={() => setDeliveryModal(true)} className={`btn main-btn`}><span className={`icon-delivery icon`}></span> Delivery</button>
+                            </div>
                         </div>
-                        <div className={classes.details}>
-                            <div className={classes.itemTitle}>{proTitle}</div>
-                            <div className={classes.itemDesc}>{proDesc}</div>
+
+                        <div className={classes.otherItems}>
+                            <OtherItems title="You Can View Other Products." />
                         </div>
                     </div>
                 </div>

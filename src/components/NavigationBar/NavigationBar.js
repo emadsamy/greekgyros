@@ -3,13 +3,43 @@ import {NavLink} from 'react-router-dom';
 import classes from './NavigationBar.module.css';
 import Logo from '../../assets/img/logo.png';
 import { Delivery, Search } from '../index';
+import Select from 'react-select';
+import Ru from '../../assets/img/flags/ru.svg';
+import Us from '../../assets/img/flags/us.svg';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
-const NavigationBar = () => {
+const NavigationBar = (props) => {
+    const { t, i18n } = useTranslation();
     const [deliveryModal, setDeliveryModal] = useState(false);
     const [searchModal, setSearchModal] = useState(false);
+    const options = [
+        { value: 'ru', label: <div className={classes.flag}><img src={Ru} /> Russian </div>},
+        { value: 'en', label: <div className={classes.flag}><img src={Us} /> English </div>},
+    ];
+    const [selectedOption, setSelectedOption] = useState();
+
+    const changeLanguage = (event) => {
+        i18n.changeLanguage(event.value);
+        const bodyEl = document.body;
+        if (event.value == "ru") {
+          bodyEl.classList.add("rtl-dir");
+        } else {
+          bodyEl.classList.remove("rtl-dir");
+        }
+      };
+      if (localStorage.getItem("i18nextLng")) {
+        const bodyEl = document.body;
+        if (localStorage.getItem("i18nextLng") == "ru") {
+          bodyEl.classList.add("rtl-dir");
+        } else {
+          bodyEl.classList.remove("rtl-dir");
+        }
+      }
+
     return (
         <>
-            <Delivery show={deliveryModal} onHide={() => setDeliveryModal(false)} />
+            <Delivery show={deliveryModal || props.deliveryModal} onHide={() => setDeliveryModal(false) || props.onHide()} />
             <Search show={searchModal} onHide={() => setSearchModal(false)} />
             <nav>
                 <div className={classes.navContainer}>
@@ -18,20 +48,33 @@ const NavigationBar = () => {
                             <div className={classes.left}>
                                 <NavLink to="/" className={`${classes.logo} fc`}>
                                     <img className={classes.logoImg} src={Logo} alt={'Greek Gyros'} />
-                                    <div className={classes.brandTitle}>Greek Gyros</div>
+                                    <div className={classes.brandTitle}>{t('brand-title')}</div>
                                 </NavLink>
                             </div>
                             <div className={classes.right}>
                                 <div className={`${classes.items} fc`}>
-                                    <div className={classes.item}><NavLink to="/">Home</NavLink></div>
-                                    <div className={classes.item}><NavLink to="/menu">Menu</NavLink></div>
-                                    <div className={classes.item}><NavLink to="/about">About</NavLink></div>
-                                    <div className={classes.item}><NavLink to="/contact">Contact</NavLink></div>
+                                    <div className={classes.item}><NavLink to="/">{t('home-title')}</NavLink></div>
+                                    <div className={classes.item}><NavLink to="/menu">{t('menu-title')}</NavLink></div>
+                                    <div className={classes.item}><NavLink to="/about">{t('about-title')}</NavLink></div>
+                                    <div className={classes.item}><NavLink to="/contact">{t('contact-title')}</NavLink></div>
                                     <div className={classes.item}>
                                         <button onClick={() => setSearchModal(true)} className={`btn ${classes.searchIcon}`}><span className={`icon-search icon ${classes.icon}`}></span></button>
                                     </div>
                                     <div className={classes.item}>
-                                        <button onClick={() => setDeliveryModal(true)} className={`btn main-btn`}><span className={`icon-delivery icon`}></span> Delivery</button>
+                                        <button onClick={() => setDeliveryModal(true)} className={`btn main-btn`}><span className={`icon-delivery icon`}></span> {t('delivery-title')}</button>
+                                    </div>
+                                    {/* <div>
+                                        {t('welcome')}
+                                        {i18n.language == "ar" ? props.title_ar : props.title} // check By This
+                                    </div> */}
+                                    <div className={classes.item}>
+                                        <Select 
+                                            className={classes.selecctLang} 
+                                            onChange={changeLanguage} 
+                                            // () => changeLanguage() i18next.language == "ru" ? "en" : "ru"
+                                            isSearchable={false} options={options} 
+                                            defaultValue={i18next.language == "ru" ? options[0] : options[1]}
+                                             />  
                                     </div>
                                 </div>
                             </div>

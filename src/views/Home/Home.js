@@ -16,7 +16,7 @@ const Home = (props) => {
                 <Header />
                 <Benefits />
                 <Categories />
-                <Products />
+                <Products title={'Our Menu'} />
                 <Footer />
             </div>
         </>

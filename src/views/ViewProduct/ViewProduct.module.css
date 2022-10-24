@@ -62,4 +62,35 @@
 }
 .itemDesc {
     font-size: 17px;
+    margin-bottom: 20px;
+}
+.priceCard {
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.price {
+    position: relative;
+    font-weight: 700;
+    font-size: 25px;
+    display: inline-block;
+}
+.currency {
+    position: absolute;
+    font-size: 13px;
+    top: 0;
+    left: 110%;
+    font-weight: 900;
+}
+.otherItems {
+    margin-top: 100px;
+    padding-top: 60px;
+    border-top: 1px solid #eee;
+}
+.productTitle {
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+.proGrid {
+    position: relative;
 }

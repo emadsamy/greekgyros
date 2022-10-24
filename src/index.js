@@ -8,6 +8,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';
+import "./i18n";
 
 window.baseURL = 'http://127.0.0.1:8000/api/v1';
 

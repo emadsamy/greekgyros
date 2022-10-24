@@ -28,12 +28,14 @@ const Product = (props) => {
                 {
                     props.fav ? <div className={classes.special}>{props.fav}</div> : ''
                 }
-                <NavLink to="/category">
+                {
+                    props.catId ? <NavLink to="/menu" state={{catId: props.catId}}>
                     <div className={`${classes.category} fc`}>
                         <img className={`${classes.catImg} img-fluid`} src={FoodIc} alt="Food" />
                         <div className={classes.catTitle}>{props.category}</div>
                     </div>
-                </NavLink>
+                    </NavLink> : ''
+                }
                 <div className={classes.card}>
                     <div className={classes.proView}>
                         <Swiper

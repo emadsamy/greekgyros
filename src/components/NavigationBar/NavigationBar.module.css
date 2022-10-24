@@ -42,4 +42,21 @@
 .searchIcon .icon {
     font-size: 21px;
     font-weight: 500;
+}
+.flag {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
 } 
+.flag img {
+    width: 26px;
+    height: 18px;
+    object-fit: cover;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin-right: 8px;
+}
+.selecctLang {
+    width: 145px !important;
+    /* padding: 3px 0 3px 8px !important; */
+}

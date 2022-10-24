@@ -1,11 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
 import axios from 'axios';
-import classes from './Home.module.css';
-import { NavigationBar } from '../../components/index';
-import { Header } from './Header';
-import { Benefits } from './Benefits';
-import { Categories } from './Categories';
+import classes from './ViewProduct.module.css';
 import { Product } from '../../components/index';
 import Coffee from '../../assets/img/menu/coffee.jpg';
 import Food from '../../assets/img/menu/food.jpeg';
@@ -18,7 +14,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const Products = (props) => {
+const OtherItems = (props) => {
     const [items, setItems] = useState([
         {
             id: 1,
@@ -63,7 +59,7 @@ const Products = (props) => {
 
     return (
         <>
-            <div style={{backgroundImage: `url(${FoodBg})`}} className={classes.products}>
+            <div className={classes.products}>
                 <div className={`container`}>
                     <div className={`${classes.productsContainer}`}>
                         <div className={`${classes.productTitle} text-center`}>{props.title}</div>
@@ -109,4 +105,4 @@ const Products = (props) => {
     );
 }
 
-export { Products };
+export { OtherItems };

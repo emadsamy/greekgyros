@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
+import {Route, Switch, NavLink, Navigate, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import classes from './Menu.module.css';
 import { Header } from './Header';
@@ -15,14 +15,19 @@ import Pizza from '../../assets/img/menu/pizza.jpeg';
 import { Product, Category } from '../../components/index';
 
 const Menu = (props) => {
-    const [isActive, setActive] = useState(0);
+    const location = useLocation();
+    const { catId } = location.state ? location.state : '';
+    const [isActive, setActive] = useState(catId ? catId : 0);
     const onActiveClass = (id) => {
         setActive(id);
-        // console.log(id);
+        console.log(id);
     };
     const funcHandle = (id, name) => {
         console.log(id, name);
     }
+    useState(() => {
+        console.log(isActive);
+    }, [isActive]);
     const [categories, setCategories] = useState([
         {
             id: 1,
@@ -94,19 +99,15 @@ const Menu = (props) => {
             <div className={classes.menu}>
                 <div className={classes.wrapperContainer}>
                     <div className={`container`}>
-                        <Header />
+                        <Header key={1} />
                         {/* Categories */}
                         <div className={classes.categories}>
                             <div className={classes.subTitle}>Choose Category!</div>
                             <div className={classes.catsGrid}>
-                                <Category id="0" isActive={isActive} select={Select} title={'All'} type="all" />
-                                {/* <div onClick={() => handleClassToggle(0)} className={`${classes.catRow} ${isActive == 0 && classes.activeCat}`}>
-                                    <img className={`img-fluid ${classes.crImg} ${classes.selectAll}`} src={Select} alt={'Category'} />
-                                    <div className={classes.crTitle}>All</div>
-                                </div> */}
+                                <Category key={1} onActiveClass={onActiveClass} id="0" isActive={isActive} select={Select} title={'All'} type="all" />
                                 {
                                     categories.map((row, index) => {
-                                        return <Category onActiveClass={onActiveClass} isActive={isActive} id={row.id} title={row.title} type={row.type} />;
+                                        return <Category key={index} onActiveClass={onActiveClass} isActive={isActive} id={row.id} title={row.title} type={row.type} />;
                                     })   
                                 }
                             </div>
@@ -118,13 +119,13 @@ const Menu = (props) => {
                             <div className={classes.gridPros}>
                                 {
                                     items.map((row, index) => {
-                                        return <Product onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
+                                        return <Product key={index} onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
                                     })
                                 }
 
                                 {
                                     items.map((row, index) => {
-                                        return <Product onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
+                                        return <Product key={index} onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
                                     })
                                 }
                             </div>
