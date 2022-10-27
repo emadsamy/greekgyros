@@ -17,48 +17,61 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import * as actions from "../../store/index";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
+// {t('welcome')}
+// {i18n.language == "ar" ? props.title_ar : props.title} 
 
 const Products = (props) => {
-    const [items, setItems] = useState([
-        {
-            id: 1,
-            title: 'Shawerma Sandwich',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Coffee, Food, Pizza],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Food'},
-            fav: '',
-            catId: 1
-        },
+    const { t, i18n } = useTranslation();
+    const dispatch = useDispatch();
+    useState(() => {
+        dispatch(actions.products());
+    }, [dispatch]);
+    const products = useSelector((state) => state.products);
+    // const [items, setItems] = useState([
+    //     {
+    //         id: 1,
+    //         title: 'Shawerma Sandwich',
+    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
+    //         images: [Coffee, Food, Pizza],
+    //         price: 120,
+    //         price_ru: 150,
+    //         category: {title: 'Food'},
+    //         fav: '',
+    //         catId: 1
+    //     },
 
-        {
-            id: 2,
-            title: 'Falafel',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Food, Coffee, Pizza],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Drinks'},
-            fav: 'Best!',
-            catId: 2
-        },
+    //     {
+    //         id: 2,
+    //         title: 'Falafel',
+    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
+    //         images: [Food, Coffee, Pizza],
+    //         price: 120,
+    //         price_ru: 150,
+    //         category: {title: 'Drinks'},
+    //         fav: 'Best!',
+    //         catId: 2
+    //     },
 
-        {
-            id: 3,
-            title: 'Pizza & Pasta',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Pizza, Food, Coffee],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Shawerma'},
-            fav: '',
-            catId: 3
-        },
-    ]);
+    //     {
+    //         id: 3,
+    //         title: 'Pizza & Pasta',
+    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
+    //         images: [Pizza, Food, Coffee],
+    //         price: 120,
+    //         price_ru: 150,
+    //         category: {title: 'Shawerma'},
+    //         fav: '',
+    //         catId: 3
+    //     },
+    // ]);
 
     const funcHandle = (id, name) => {
-        console.log(id, name);
+        // console.log(id, name);
     }
 
     return (
@@ -83,7 +96,7 @@ const Products = (props) => {
                                 }}
                                 onSwiper={(swiper) => console.log(swiper)}
                                 onSlideChange={() => console.log('slide change')}
-                                loop={true}
+                                loop={false}
                                 autoplay={{
                                     delay: 3500,
                                     disableOnInteraction: false
@@ -92,9 +105,25 @@ const Products = (props) => {
                                 className={`swiper-pros-hom`}
                             >
                                 {
-                                    items.map((row, index) => {
+                                    products.map((row, index) => {
                                         return <SwiperSlide className={classes.swipersss}>
-                                            <Product onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} catId={row.catId} />
+                                            <Product 
+                                                onSelectLanguage={funcHandle} 
+                                                id={row.id} 
+                                                title_ru={row.title_ru} 
+                                                title_en={row.title_en} 
+                                                description_ru={row.description_ru} 
+                                                description_en={row.description_en} 
+                                                price_ru={row.price_ru}
+                                                price_en={row.price_en}
+                                                image={row.images} 
+                                                price={row.price} 
+                                                favourite={row.favourite} 
+                                                catId={row.categories.id}
+                                                cat_title_ru={row.categories.title_ru}
+                                                cat_title_en={row.categories.title_en}
+                                                cat_image={row.categories.image}
+                                                files={row.files} />
                                         </SwiperSlide>;
                                     })
                                 }

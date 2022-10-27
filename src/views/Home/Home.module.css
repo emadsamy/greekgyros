@@ -13,12 +13,14 @@
     position: absolute;
     bottom: 70px;
     padding: 40px 70px;
+    z-index: 15;
 }
 .slideTitle {
     color: #fff;
     font-weight: 700;
     font-size: 40px;
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 .swiperHeader {
     border-radius: 22px;
@@ -151,4 +153,7 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 12.52rem;
     gap: 13px; */
+}
+.videoSrc {
+    height: 540px !important;
 }

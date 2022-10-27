@@ -13,83 +13,118 @@ import Coffee from '../../assets/img/menu/coffee.jpg';
 import FoodPro from '../../assets/img/menu/food.jpeg';
 import Pizza from '../../assets/img/menu/pizza.jpeg';
 import { Product, Category } from '../../components/index';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import * as actions from "../../store/index";
+import { Loading, LoadingGrow } from '../../components/index';
 
 const Menu = (props) => {
     const location = useLocation();
+    const [loading, setLoading] = useState(false);
+    const [pros, setPros] = useState([]);
+    const [prosCount, setProsCount] = useState(0);
     const { catId } = location.state ? location.state : '';
     const [isActive, setActive] = useState(catId ? catId : 0);
     const onActiveClass = (id) => {
         setActive(id);
         console.log(id);
+        productsHandler(id);
     };
     const funcHandle = (id, name) => {
         console.log(id, name);
     }
     useState(() => {
         console.log(isActive);
+        productsHandler(isActive);
     }, [isActive]);
-    const [categories, setCategories] = useState([
-        {
-            id: 1,
-            title: 'Food',
-            type: 'food',
-        },
-        {
-            id: 2,
-            title: 'Drinks',
-            type: 'drinks',
-        },
-        {
-            id: 3,
-            title: 'Food',
-            type: 'food',
-        },
-        {
-            id: 4,
-            title: 'Drinks',
-            type: 'drinks',
-        },
-        {
-            id: 5,
-            title: 'Food',
-            type: 'food',
-        },
-    ]);
 
-    const [items, setItems] = useState([
-        {
-            id: 1,
-            title: 'Shawerma Sandwich',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Coffee, FoodPro, Pizza],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Food'},
-            fav: '',
-        },
+    const dispatch = useDispatch();
+    useState(() => {
+        dispatch(actions.categories());
+    }, [dispatch]);
+    const categories = useSelector((state) => state.categories);
 
-        {
-            id: 2,
-            title: 'Falafel',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [FoodPro, Coffee, Pizza],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Drinks'},
-            fav: 'Best!'
-        },
+    function productsHandler(id)  {
+        setLoading(true);
+        const options = {
+            url: window.baseURL + "/fetch_products/" + id,
+            method: "GET",
+        };
 
-        {
-            id: 3,
-            title: 'Pizza & Pasta',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [FoodPro, Food, Coffee],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Shawerma'},
-            fav: ''
-        },
-    ]);
+        axios(options)
+        .then((response) => {
+            setPros(response.data.data);
+            setProsCount(response.data.count);
+            setLoading(false);
+            console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    }
+
+    // const [categories, setCategories] = useState([
+    //     {
+    //         id: 1,
+    //         title: 'Food',
+    //         type: 'food',
+    //     },
+    //     {
+    //         id: 2,
+    //         title: 'Drinks',
+    //         type: 'drinks',
+    //     },
+    //     {
+    //         id: 3,
+    //         title: 'Food',
+    //         type: 'food',
+    //     },
+    //     {
+    //         id: 4,
+    //         title: 'Drinks',
+    //         type: 'drinks',
+    //     },
+    //     {
+    //         id: 5,
+    //         title: 'Food',
+    //         type: 'food',
+    //     },
+    // ]);
+
+    // const [items, setItems] = useState([
+    //     {
+    //         id: 1,
+    //         title: 'Shawerma Sandwich',
+    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
+    //         images: [Coffee, FoodPro, Pizza],
+    //         price: 120,
+    //         price_ru: 150,
+    //         category: {title: 'Food'},
+    //         fav: '',
+    //     },
+
+    //     {
+    //         id: 2,
+    //         title: 'Falafel',
+    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
+    //         images: [FoodPro, Coffee, Pizza],
+    //         price: 120,
+    //         price_ru: 150,
+    //         category: {title: 'Drinks'},
+    //         fav: 'Best!'
+    //     },
+
+    //     {
+    //         id: 3,
+    //         title: 'Pizza & Pasta',
+    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
+    //         images: [FoodPro, Food, Coffee],
+    //         price: 120,
+    //         price_ru: 150,
+    //         category: {title: 'Shawerma'},
+    //         fav: ''
+    //     },
+    // ]);
     return (
         <>
             <Helmet>
@@ -104,10 +139,18 @@ const Menu = (props) => {
                         <div className={classes.categories}>
                             <div className={classes.subTitle}>Choose Category!</div>
                             <div className={classes.catsGrid}>
-                                <Category key={1} onActiveClass={onActiveClass} id="0" isActive={isActive} select={Select} title={'All'} type="all" />
+                                <Category key={1} onActiveClass={onActiveClass} id="0" isActive={isActive} select={Select} title_ru={'All'} title_en={'All'} type="all" />
                                 {
                                     categories.map((row, index) => {
-                                        return <Category key={index} onActiveClass={onActiveClass} isActive={isActive} id={row.id} title={row.title} type={row.type} />;
+                                        return <Category 
+                                            key={index} 
+                                            id={row.id} 
+                                            title_ru={row.title_ru} 
+                                            title_en={row.title_en} 
+                                            image={row.image}
+                                            onActiveClass={onActiveClass} 
+                                            isActive={isActive} />
+                                        // return <Category key={index} onActiveClass={onActiveClass} isActive={isActive} id={row.id} title={row.title} type={row.type} />;
                                     })   
                                 }
                             </div>
@@ -115,20 +158,36 @@ const Menu = (props) => {
 
                         {/* Products */}
                         <div className={classes.prosContainer}>
-                            <div className={classes.subTitle}>Products <div className={classes.counter}>207</div></div>
-                            <div className={classes.gridPros}>
-                                {
-                                    items.map((row, index) => {
-                                        return <Product key={index} onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
-                                    })
-                                }
+                            <div className={classes.subTitle}>Products <div className={classes.counter}>{prosCount}</div></div>
+                            
+                            {
+                                loading ? <LoadingGrow /> :
+                                prosCount > 0 ? 
+                                    <div className={classes.gridPros}>
+                                    {
+                                        pros.map((row, index) => {
+                                            return <Product 
+                                                onSelectLanguage={funcHandle} 
+                                                id={row.id} 
+                                                title_ru={row.title_ru} 
+                                                title_en={row.title_en} 
+                                                description_ru={row.description_ru} 
+                                                description_en={row.description_en} 
+                                                price_ru={row.price_ru}
+                                                price_en={row.price_en}
+                                                image={row.images} 
+                                                price={row.price} 
+                                                favourite={row.favourite} 
+                                                catId={row.categories.id}
+                                                cat_title_ru={row.categories.title_ru}
+                                                cat_title_en={row.categories.title_en}
+                                                cat_image={row.categories.image}
+                                                files={row.files} />;
+                                        })
+                                    }
+                                    </div> : <div className={classes.checkerMessage}>There Are No Products Yet</div>
+                            }
 
-                                {
-                                    items.map((row, index) => {
-                                        return <Product key={index} onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} />;
-                                    })
-                                }
-                            </div>
                         </div>
                     </div>
                 </div>

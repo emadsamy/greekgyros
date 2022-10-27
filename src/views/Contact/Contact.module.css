@@ -100,6 +100,15 @@
     text-align: center;
 }
 .action button {
-    padding: 12px 40px;
+    padding: 3px 30px;
     margin: auto;
+}
+.loading img {
+    width: 24px;
+    height: 28px;
+    margin-right: 5px;
+}
+.loading {
+    color: #fff;
+    font-size: 16px;
 }

@@ -73,3 +73,11 @@
     grid-gap: 12.52rem;
     gap: 20px;
 }
+.checkerMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    font-size: 40px;
+    font-weight: 600;
+}

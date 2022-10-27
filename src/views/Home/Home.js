@@ -7,10 +7,15 @@ import { Header } from './Header';
 import { Benefits } from './Benefits';
 import { Categories } from './Categories';
 import { Products } from './Products';
+import { Helmet } from 'react-helmet';
 
 const Home = (props) => {
     return (
         <>
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
+
             <NavigationBar />
             <div className={classes.homeContainer}>
                 <Header />

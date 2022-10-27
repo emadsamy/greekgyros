@@ -4,8 +4,19 @@ import axios from 'axios';
 import classes from './Contact.module.css';
 import { NavigationBar, Footer } from '../../components/index';
 import {Helmet} from "react-helmet";
+import { Form } from './Form';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import * as actions from "../../store/index";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const Contact = (props) => {
+    const dispatch = useDispatch();
+    useState(() => {
+        dispatch(actions.settings());
+    }, [dispatch]);
+    const settings = useSelector((state) => state.settings);
+
     return (
         <>
             <Helmet>
@@ -46,19 +57,23 @@ const Contact = (props) => {
                                             </div>
                                             <div className={classes.locationDetails}>
                                                 <div className={classes.subTitle2}>Contact Info</div>
-                                                <div className={classes.locationRow}>
-                                                    <a className={`${classes.liRow} fc`} href="tel:71234567901">
-                                                        <span className={`icon-call ${classes.locationIcon}`}></span>
-                                                        <div className={classes.lrValue}>(+7) 123-4567-901</div>
-                                                    </a>
-                                                </div>
+                                                {
+                                                    settings.phone ? <div className={classes.locationRow}>
+                                                        <a className={`${classes.liRow} fc`} href={`tel:${settings.phone}`}>
+                                                            <span className={`icon-call ${classes.locationIcon}`}></span>
+                                                            <div className={classes.lrValue}>{settings.phone}</div>
+                                                        </a>
+                                                    </div> : ''
+                                                }
 
-                                                <div className={classes.locationRow}>
-                                                    <a className={`${classes.liRow} fc`} href="mailto:example@example.com">
-                                                        <span className={`icon-email ${classes.locationIcon}`}></span>
-                                                        <div className={classes.lrValue}>example@example.com</div>
-                                                    </a>
-                                                </div>
+                                                {
+                                                    settings.email ? <div className={classes.locationRow}>
+                                                        <a className={`${classes.liRow} fc`} href={`emailto:${settings.email}`}>
+                                                            <span className={`icon-email ${classes.locationIcon}`}></span>
+                                                            <div className={classes.lrValue}>{settings.email}</div>
+                                                        </a>
+                                                    </div> : ''
+                                                }
 
                                                 <div className={classes.locationRow}>
                                                     <a className={`${classes.liRow} fc`} href="https://www.google.com/maps?ll=59.940414,30.094672&z=8&t=m&hl=ar&gl=EG&mapclient=embed&q=%D8%B3%D8%A7%D9%86%D8%AA+%D8%A8%D8%B7%D8%B1%D8%B3%D8%A8%D8%B1%D8%BA+%D8%B1%D9%88%D8%B3%D9%8A%D8%A7" target={'_blank'}>
@@ -70,43 +85,7 @@ const Contact = (props) => {
                                         </div>
 
                                         <div className={classes.right}>
-                                            <form>
-                                                <div className={classes.form}>
-                                                    <div className={`form-group-row`}>
-                                                        <label className={'fgr-label'}>Full Name</label>
-                                                        <div className={'fgrinp'}>
-                                                            <input className={`fgr-input`} type="text" placeholder="Enter your full name " />
-                                                        </div>
-                                                    </div>
-
-                                                    <div className={`form-group-row`}>
-                                                        <label className={'fgr-label'}>Phone Number</label>
-                                                        <div className={'fgrinp'}>
-                                                            <input className={`fgr-input`} type="text" placeholder="Enter your phone number" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div className={`form-group-row`}>
-                                                        <label className={'fgr-label'}>Email</label>
-                                                        <div className={'fgrinp'}>
-                                                            <input className={`fgr-input`} type="email" placeholder="Enter your email" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div className={`form-group-row`}>
-                                                        <label className={'fgr-label'}>Message</label>
-                                                        <div className={'fgrinp'}>
-                                                            <textarea className={`fgr-input`} placeholder="Write your message">
-
-                                                            </textarea>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className={classes.action}>
-                                                        <button className={`btn main-btn`}>Contact Us</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            <Form />
                                         </div>
                                     </div>
                                 </div>

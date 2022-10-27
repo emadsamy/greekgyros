@@ -2,8 +2,21 @@ import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import classes from './Footer.module.css';
 import Logo from '../../assets/img/logo.png';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import * as actions from "../../store/index";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const Footer = () => {
+
+    const { t, i18n } = useTranslation();
+
+    const dispatch = useDispatch();
+    useState(() => {
+        dispatch(actions.settings());
+    }, [dispatch]);
+    const settings = useSelector((state) => state.settings);
+
     return (
         <>
             <footer className={classes.footer}>
@@ -27,38 +40,49 @@ const Footer = () => {
                         <div className={classes.socialmedia}>
                             <div className={classes.footerTitle}>Follow Us</div>
                             <div className={`${classes.socialIcons} fc`}>
-                                <div className={classes.icon}>
-                                    <a href='https://www.facebook.com' target="_blank">
-                                        <span className={`icon-facebook`}></span>
-                                    </a>
-                                </div>
 
-                                <div className={classes.icon}>
-                                    <a href='https://www.youtube.com' target="_blank">
-                                        <span className={`icon-youtube`}></span>
-                                    </a>
-                                </div>
+                                {
+                                    settings.facebook ? <div className={classes.icon}>
+                                        <a href={settings.facebook} target="_blank">
+                                            <span className={`icon-facebook`}></span>
+                                        </a>
+                                    </div> : ''
+                                }
 
-                                <div className={classes.icon}>
-                                    <a href='https://www.instagram.com' target="_blank">
-                                        <span className={`icon-instagram`}></span>
-                                    </a>
-                                </div>
+                                {
+                                    settings.youtube ? <div className={classes.icon}>
+                                        <a href={settings.youtube} target="_blank">
+                                            <span className={`icon-youtube`}></span>
+                                        </a>
+                                    </div> : ''
+                                }
+
+                                {
+                                    settings.instagram ? <div className={classes.icon}>
+                                        <a href={settings.instagram} target="_blank">
+                                            <span className={`icon-instagram`}></span>
+                                        </a>
+                                    </div> : ''
+                                }
                             </div>
                             <div className={classes.locationDetails}>
-                                <div className={classes.locationRow}>
-                                    <a className={`${classes.liRow} fc`} href="tel:71234567901">
-                                        <span className={`icon-call ${classes.locationIcon}`}></span>
-                                        <div className={classes.lrValue}>(+7) 123-4567-901</div>
-                                    </a>
-                                </div>
+                                {
+                                    settings.phone ? <div className={classes.locationRow}>
+                                        <a className={`${classes.liRow} fc`} href={`tel:${settings.phone}`}>
+                                            <span className={`icon-call ${classes.locationIcon}`}></span>
+                                            <div className={classes.lrValue}>{settings.phone}</div>
+                                        </a>
+                                    </div> : ''
+                                }
 
-                                <div className={classes.locationRow}>
-                                    <a className={`${classes.liRow} fc`} href="mailto:example@example.com">
-                                        <span className={`icon-email ${classes.locationIcon}`}></span>
-                                        <div className={classes.lrValue}>example@example.com</div>
-                                    </a>
-                                </div>
+                                {
+                                    settings.email ? <div className={classes.locationRow}>
+                                        <a className={`${classes.liRow} fc`} href={`mailto:${settings.email}`}>
+                                            <span className={`icon-email ${classes.locationIcon}`}></span>
+                                            <div className={classes.lrValue}>{settings.email}</div>
+                                        </a>
+                                    </div> : ''
+                                }
 
                                 <div className={classes.locationRow}>
                                     <a className={`${classes.liRow} fc`} href="https://www.google.com/maps?ll=59.940414,30.094672&z=8&t=m&hl=ar&gl=EG&mapclient=embed&q=%D8%B3%D8%A7%D9%86%D8%AA+%D8%A8%D8%B7%D8%B1%D8%B3%D8%A8%D8%B1%D8%BA+%D8%B1%D9%88%D8%B3%D9%8A%D8%A7" target={'_blank'}>

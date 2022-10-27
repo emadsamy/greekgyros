@@ -8,8 +8,15 @@ import Pizza from '../../assets/img/menu/pizza.jpeg';
 
 import FoodIc from '../../assets/img/food.png';
 import Drinks from '../../assets/img/drinks.png';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
+// {t('welcome')}
+// {i18n.language == "ru" ? props.title_ar : props.title}
 
 const Category = (props) => {
+
+    const { t, i18n } = useTranslation();
 
     const handleClass = (id) => {
         props.onActiveClass(id);
@@ -18,10 +25,11 @@ const Category = (props) => {
     return (
         <>
             <div onClick={() => handleClass(props.id)} className={`${classes.catRow} ${props.isActive == props.id && classes.activeCat}`}>
-                {props.type == 'food' ? <img className={`img-fluid ${classes.crImg}`} src={FoodIc} alt={props.title} /> : '' }
-                {props.type == 'drinks' ? <img className={`img-fluid ${classes.crImg}`} src={Drinks} alt={props.title} /> : '' }
-                {props.type == 'all' ? <img className={`img-fluid ${classes.crImg} ${classes.selectAll}`} src={props.select} alt={props.title} /> : '' }
-                <div className={classes.crTitle}>{props.title}</div>
+                {
+                    props.type && props.type == 'all' ? 
+                        <img className={`img-fluid ${classes.crImg} ${classes.selectAll}`} src={props.select ? props.select : ''} /> 
+                        : <img className={`img-fluid ${classes.crImg}`} src={props.image} alt={i18n.language == "ru" ? props.title_ru : props.title_en} /> }
+                <div className={classes.crTitle}>{i18n.language == "ru" ? props.title_ru : props.title_en}</div>
             </div>
         </>
     );

@@ -1,0 +1,38 @@
+@-webkit-keyframes spinnerGrow {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes spinnerGrow {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.spinnerGrow {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    vertical-align: text-bottom;
+    background-color: #18669d;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: spinnerGrow .75s linear infinite;
+    animation: spinnerGrow .75s linear infinite;
+
+}
+.parentSpinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}

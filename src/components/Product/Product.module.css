@@ -3,6 +3,8 @@
     overflow: hidden;
     box-shadow: 0px 2px 11px #5c5c5c14;
     position: relative;
+    height: 100%;
+    background: #fff;
 }
 .proImg {
     height: 230px !important;
@@ -15,14 +17,18 @@
     /* border-bottom: 8px solid #11293a; */
 }
 .details {
-    padding: 24px;
-    background: #fff;
+    padding: 24px 24px 10px 24px;
+}
+.cardBottom {
+    padding: 0 24px 24px 24px;
+    flex: 0;
 }
 .title {
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 7px;
     word-wrap: break-word;
+    text-transform: capitalize;
 }
 .description {
     word-wrap: break-word;
@@ -74,6 +80,7 @@
     font-size: 13.5px;
     font-weight: 600;
     transition: all 0.2s ease-in-out;
+    text-transform: capitalize;
 }
 .category:hover {
     background: #18669d;
@@ -86,12 +93,27 @@
 }
 .special {
     position: absolute;
-    left: 20px;
-    top: 20px;
     background: linear-gradient(to right, #f85032, #e73827);
     z-index: 8;
-    padding: 8px 17px;
-    border-radius: 50px;
     color: #fff;
     line-height: 1;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 0;
+    transform: rotateZ(-34deg);
+    left: -36px;
+    padding: 8px 40px;
+    top: 16px;
+}
+.card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+}
+.cardTop {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }

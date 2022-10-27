@@ -74,7 +74,8 @@ a:hover {
 }
 
 .main-btn {
-  padding: 10px 21px;
+  padding: 3px 21px;
+  min-height: 40px;
   background: linear-gradient(90deg, rgba(60,112,149,1) 0%, rgba(60,112,149,1) 53%, rgba(13,118,193,1) 100%);
   color: #fff;
   border-radius: 50px;
@@ -223,6 +224,7 @@ a:hover {
 }
 .arrow-s-circle .icon {
   font-weight: bold;
+  margin: 0 !important;
 }
 .arrow-s-circle:hover {
   background: #2282c6;
@@ -234,3 +236,34 @@ a:hover {
 /* .swiper-container-multirow-column > .swiper-wrapper {
   flex-direction: column;
 } */
+.errors-card {
+  color: #f00;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.errors-card .icon {
+  margin-right: 5px;
+}
+.success-msg {
+  color: #27ae60;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.icon {
+  font-weight: 800;
+  margin-right: 5px;
+}
+.swiper-slide {
+  height: auto;
+  min-height: auto;
+}
+.gradient-easing {
+  background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.00709) 10.47%, rgba(0, 0, 0, 0.02755) 19.56%, rgba(0, 0, 0, 0.06016) 27.58%, rgba(0, 0, 0, 0.1037) 34.81%, rgba(0, 0, 0, 0.15697) 41.57%, rgba(0, 0, 0, 0.21875) 48.13%, rgba(0, 0, 0, 0.28782) 54.79%, rgba(0, 0, 0, 0.36296) 61.85%, rgba(0, 0, 0, 0.44297) 69.61%, rgba(0, 0, 0, 0.52662) 78.36%, rgba(0, 0, 0, 0.6127) 88.39%, rgba(0, 0, 0, 0.7) );
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
