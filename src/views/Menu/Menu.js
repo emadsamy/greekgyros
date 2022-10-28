@@ -178,7 +178,7 @@ const Menu = (props) => {
                                                 image={row.images} 
                                                 price={row.price} 
                                                 favourite={row.favourite} 
-                                                catId={row.categories.id}
+                                                // catId={row.categories.id}
                                                 cat_title_ru={row.categories.title_ru}
                                                 cat_title_en={row.categories.title_en}
                                                 cat_image={row.categories.image}

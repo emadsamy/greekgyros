@@ -39,7 +39,7 @@ const Product = (props) => {
                 {
                     props.catId ? <NavLink to="/menu" state={{catId: props.catId}}>
                         <div className={`${classes.category} fc`}>
-                            <img className={`${classes.catImg} img-fluid`} src={FoodIc} alt="Food" />
+                            <img className={`${classes.catImg} img-fluid`} src={props.cat_image} alt="Food" />
                             <div className={classes.catTitle}>{i18n.language == "ru" ? props.cat_title_ru : props.cat_title_en}</div>
                         </div>
                     </NavLink> : ''
@@ -92,7 +92,7 @@ const Product = (props) => {
                             <div className={classes.price}>{i18n.language == "ru" ? props.price_ru : props.price_en} <div className={classes.currency}>RUB</div> </div> 
                         </div>
                         <div className={classes.action}>
-                            <NavLink to={`/view-product/${props.id}`} 
+                            <NavLink to={`/view-product/${props.title_ru.replace(/\s+/g, '-').toLowerCase()}/${props.id}`} 
                                     state={{ 
                                         proTitle: i18n.language == "ru" ? props.title_ru : props.title_en, 
                                         proId: props.id, 

@@ -12,6 +12,7 @@
 .breadLiActive {
     margin-right: 5px;
     font-size: 17px;
+    text-transform: capitalize;
 }
 .breadLi:hover a {
     color: #18669d !important;
@@ -52,6 +53,7 @@
     height: 100% !important;
     width: 100%;
     border-radius: 22px;
+    object-fit: cover;
 }
 .itemSlideThumb {
     height: calc(205px) !important;
@@ -59,6 +61,7 @@
 .itemTitle {
     font-size: 37px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 .itemDesc {
     font-size: 17px;

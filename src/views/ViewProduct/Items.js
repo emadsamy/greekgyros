@@ -29,12 +29,11 @@ const Items = (props) => {
                         clickable: true,
                     }}
                     >
-                    <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={Coffee} alt={'test'}  /></SwiperSlide>
-                    <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={FoodPro} alt={'test'}  /></SwiperSlide>
-                    <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={Pizza} alt={'test'}  /></SwiperSlide>
-                    <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={Coffee} alt={'test'}  /></SwiperSlide>
-                    <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={FoodPro} alt={'test'}  /></SwiperSlide>
-                    <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={Pizza} alt={'test'}  /></SwiperSlide>
+                        {
+                            props.files && props.files.map((row, index) => {
+                                return <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={row.image}  /></SwiperSlide>
+                            })
+                        }
                 </Swiper>
             </div>
 
@@ -52,24 +51,13 @@ const Items = (props) => {
                     slidesPerGroup= '2'
                     direction="horizontal"
                     >
-                    <SwiperSlide className={classes.itemSlideThumb}>
-                        <img className={`img-fluid ${classes.imgSlThumb}`} src={Coffee} alt={'test'} />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.itemSlideThumb}>
-                        <img className={`img-fluid ${classes.imgSlThumb}`} src={FoodPro} alt={'test'} />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.itemSlideThumb}>
-                        <img className={`img-fluid ${classes.imgSlThumb}`} src={Pizza} alt={'test'} />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.itemSlideThumb}>
-                        <img className={`img-fluid ${classes.imgSlThumb}`} src={Coffee} alt={'test'} />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.itemSlideThumb}>
-                        <img className={`img-fluid ${classes.imgSlThumb}`} src={FoodPro} alt={'test'} />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.itemSlideThumb}>
-                        <img className={`img-fluid ${classes.imgSlThumb}`} src={Pizza} alt={'test'} />
-                    </SwiperSlide>
+                        {
+                            props.files && props.files.map((row, index) => {
+                                return <SwiperSlide className={classes.itemSlideThumb}>
+                                    <img className={`img-fluid ${classes.imgSlThumb}`} src={row.image} />
+                                </SwiperSlide>
+                            })
+                        }
                 </Swiper>
             </div>
         </>

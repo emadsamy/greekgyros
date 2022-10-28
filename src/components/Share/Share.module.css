@@ -23,6 +23,7 @@
 .title {
     font-size: 19px;
     color: rgb(34, 34, 34);
+    text-transform: capitalize;
 }
 .grid {
     display: grid;

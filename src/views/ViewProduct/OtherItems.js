@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {Route, Switch, NavLink, Navigate} from 'react-router-dom';
+import {Route, Switch, NavLink, Navigate, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import classes from './ViewProduct.module.css';
 import { Product } from '../../components/index';
@@ -13,45 +13,36 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Loading, LoadingGrow } from '../../components/index';
 
 const OtherItems = (props) => {
-    const [items, setItems] = useState([
-        {
-            id: 1,
-            title: 'Shawerma Sandwich',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Coffee, Food, Pizza],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Food'},
-            fav: '',
-            catId: 1
-        },
 
-        {
-            id: 2,
-            title: 'Falafel',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Food, Coffee, Pizza],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Drinks'},
-            fav: 'Best!',
-            catId: 2
-        },
+    const location = useLocation();
+    const { proId } = location.state;
+    const [loading, setLoading] = useState(false);
+    const [product, setProduct] = useState([]);
+    
+    useEffect(() => {
+        productsHandler(proId);
+    }, [proId]);
 
-        {
-            id: 3,
-            title: 'Pizza & Pasta',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-            images: [Pizza, Food, Coffee],
-            price: 120,
-            price_ru: 150,
-            category: {title: 'Shawerma'},
-            fav: '',
-            catId: 3
-        },
-    ]);
+    function productsHandler(id)  {
+        setLoading(true);
+        const options = {
+            url: window.baseURL + "/get_product_nequl/" + id,
+            method: "GET",
+        };
+
+        axios(options)
+        .then((response) => {
+            setProduct(response.data.data);
+            setLoading(false);
+        })
+        .catch((error) => {
+          alert(error);
+          setLoading(false);
+        });
+    }
 
     const funcHandle = (id, name) => {
         console.log(id, name);
@@ -63,7 +54,8 @@ const OtherItems = (props) => {
                 <div className={`container`}>
                     <div className={`${classes.productsContainer}`}>
                         <div className={`${classes.productTitle} text-center`}>{props.title}</div>
-                        <div className={classes.proGrid}>
+                        {
+                            loading ? <LoadingGrow /> : <div className={classes.proGrid}>
 
                             <Swiper
                                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay ]}
@@ -79,7 +71,7 @@ const OtherItems = (props) => {
                                 }}
                                 onSwiper={(swiper) => console.log(swiper)}
                                 onSlideChange={() => console.log('slide change')}
-                                loop={true}
+                                loop={false}
                                 autoplay={{
                                     delay: 3500,
                                     disableOnInteraction: false
@@ -88,9 +80,25 @@ const OtherItems = (props) => {
                                 className={`swiper-pros-hom`}
                             >
                                 {
-                                    items.map((row, index) => {
+                                    product.map((row, index) => {
                                         return <SwiperSlide className={classes.swipersss}>
-                                            <Product onSelectLanguage={funcHandle} id={row.id} title={row.title} description={row.description} category={row.category.title} image={row.images} price={row.price} fav={row.fav} catId={row.catId} />
+                                            <Product 
+                                                onSelectLanguage={funcHandle} 
+                                                id={row.id} 
+                                                title_ru={row.title_ru} 
+                                                title_en={row.title_en} 
+                                                description_ru={row.description_ru} 
+                                                description_en={row.description_en} 
+                                                price_ru={row.price_ru}
+                                                price_en={row.price_en}
+                                                image={row.images} 
+                                                price={row.price} 
+                                                favourite={row.favourite} 
+                                                catId={row.categories.id}
+                                                cat_title_ru={row.categories.title_ru}
+                                                cat_title_en={row.categories.title_en}
+                                                cat_image={row.categories.image}
+                                                files={row.files} />
                                         </SwiperSlide>;
                                     })
                                 }
@@ -98,6 +106,7 @@ const OtherItems = (props) => {
                             <div className={`next-ss-pros arrow-s-circle ${classes.arrowSs}`}><span className={`icon-chevron-right icon ${classes.icon}`}></span></div>
                             <div className={`prev-ss-pros arrow-s-circle ${classes.arrowSs}`}><span className={`icon-chevron-left icon ${classes.icon}`}></span></div>
                         </div>
+                        }
                     </div>
                 </div>
             </div>
