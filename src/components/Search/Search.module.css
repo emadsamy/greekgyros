@@ -1,0 +1,46 @@
+.modalContainer > div {
+    width: 570px;
+    max-width: 100%;
+}
+.searchGroup {
+    position: relative;
+}
+.searchList {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 10;
+    border: 2px solid #E6E6E6;
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.searchResult {
+    padding: 8px 0;
+}
+.searchTitle {
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 10px;
+    color: #666;
+    border-top: 1px solid #eee;
+}
+.searchLink {
+    padding: 7px 21px;
+    width: 100%;
+    display: block;
+    text-transform: capitalize;
+}
+.searchRow:hover {
+    background: #eee;
+}
+.searchRow:active {
+    background: #ddd;
+}
+.searchNoResults {
+    text-align: center;
+    
+}
