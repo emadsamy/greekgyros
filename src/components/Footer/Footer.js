@@ -84,6 +84,7 @@ const Footer = () => {
                                     </div> : ''
                                 }
 
+
                                 <div className={classes.locationRow}>
                                     <a className={`${classes.liRow} fc`} href="https://www.google.com/maps?ll=59.940414,30.094672&z=8&t=m&hl=ar&gl=EG&mapclient=embed&q=%D8%B3%D8%A7%D9%86%D8%AA+%D8%A8%D8%B7%D8%B1%D8%B3%D8%A8%D8%B1%D8%BA+%D8%B1%D9%88%D8%B3%D9%8A%D8%A7" target={'_blank'}>
                                         <span className={`icon-location ${classes.locationIcon}`}></span>

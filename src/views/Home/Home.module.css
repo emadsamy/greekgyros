@@ -55,6 +55,8 @@
     background: #fff;
     border-radius: 50%;
     padding: 10px;
+    width: 100px;
+    height: 100px !important;
 }
 .benefitCardTitle {
     font-weight: bold;
@@ -156,4 +158,130 @@
 }
 .videoSrc {
     height: 540px !important;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .catsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .slideCardImg {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: flex-end;
+        min-height: 380px;
+    }
+    .slideDetails {
+        padding: 50px 40px;
+        position: static;
+        bottom: auto;
+        left: auto;
+        text-align: center;
+    }
+    .slideTitle {
+        font-size: 25px;
+        line-height: 1;
+    }
+    .benefitsTitle {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    .benefitsGrid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 50px;
+    }
+    .benefitsContainer {
+        padding: 70px 0;
+    }
+    .categories {
+        padding: 70px 0;
+    }
+    .slideAction {
+        display: none;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .catsGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .slideTitle {
+        line-height: 1.2;
+        font-size: 35px;
+        margin-bottom: 29px;
+    }
+    .benefitsGrid {
+        gap: 20px;
+    }
+    .benefitCardTitle {
+        font-size: 20px;
+    }
+    .benefitCardText {
+        font-size: 16px;
+    }
+    .catsGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .slideCardImg {
+        min-height: 460px;
+    }
+    .slideDetails {
+        padding: 40px 50px;
+    }
+    .benefitsContainer {
+        padding: 80px 0;
+    }
+    .catRow {
+        padding: 40px 15px 40px;
+    }
+    .crTitle {
+        font-size: 15px;
+    }
+    .productTitle {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .catsGrid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .catsGrid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (min-width: 1400px) {
+
 }

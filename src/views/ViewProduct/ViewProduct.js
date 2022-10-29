@@ -68,7 +68,8 @@ const ViewProduct = (props) => {
                     show={shareModal} 
                     onHide={() => setShareModal(false)} 
                     img={product ? product.files[0].image : ''} 
-                    title={i18n.language == "ru" ? product.title_ru : product.title_en} />
+                    title={i18n.language == "ru" ? product.title_ru : product.title_en}
+                    description={i18n.language == "ru" ? product.description_ru : product.description_en} />
                     
             <div className={classes.menu}>
                 <div className={classes.wrapperContainer}>

@@ -9,6 +9,11 @@
     background-size: 100px 100px;
     background-position: top right;
     background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1;
 }
 .crImg {
     width: 90px;
@@ -21,6 +26,9 @@
     position: relative;
     z-index: 10;
     transition: all 0.27s ease-in-out;
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
 }
 .catRow:first-of-type .selectAll {
     border: none;
@@ -32,6 +40,7 @@
     position: relative;
     z-index: 10;
     text-transform: capitalize;
+    flex: 0 1;
 }
 .catRow:hover,
 .catRow.activeCat {

@@ -24,11 +24,11 @@ const Category = (props) => {
 
     return (
         <>
-            <div onClick={() => handleClass(props.id)} className={`${classes.catRow} ${props.isActive == props.id && classes.activeCat}`}>
+            <div onClick={() => handleClass(props.id)} className={`${classes.catRow} ${props.className} ${props.isActive == props.id && classes.activeCat}`}>
                 {
                     props.type && props.type == 'all' ? 
-                        <img className={`img-fluid ${classes.crImg} ${classes.selectAll}`} src={props.select ? props.select : ''} /> 
-                        : <img className={`img-fluid ${classes.crImg}`} src={props.image} alt={i18n.language == "ru" ? props.title_ru : props.title_en} /> }
+                        <div className={classes.irParent}><img className={`img-fluid ${classes.crImg} ${classes.selectAll}`} src={props.select ? props.select : ''} /></div> 
+                        : <div className={classes.irParent}><img className={`img-fluid ${classes.crImg}`} src={props.image} alt={i18n.language == "ru" ? props.title_ru : props.title_en} /></div> }
                 <div className={classes.crTitle}>{i18n.language == "ru" ? props.title_ru : props.title_en}</div>
             </div>
         </>

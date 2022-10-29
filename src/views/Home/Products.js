@@ -32,43 +32,6 @@ const Products = (props) => {
         dispatch(actions.products());
     }, [dispatch]);
     const products = useSelector((state) => state.products);
-    // const [items, setItems] = useState([
-    //     {
-    //         id: 1,
-    //         title: 'Shawerma Sandwich',
-    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-    //         images: [Coffee, Food, Pizza],
-    //         price: 120,
-    //         price_ru: 150,
-    //         category: {title: 'Food'},
-    //         fav: '',
-    //         catId: 1
-    //     },
-
-    //     {
-    //         id: 2,
-    //         title: 'Falafel',
-    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-    //         images: [Food, Coffee, Pizza],
-    //         price: 120,
-    //         price_ru: 150,
-    //         category: {title: 'Drinks'},
-    //         fav: 'Best!',
-    //         catId: 2
-    //     },
-
-    //     {
-    //         id: 3,
-    //         title: 'Pizza & Pasta',
-    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-    //         images: [Pizza, Food, Coffee],
-    //         price: 120,
-    //         price_ru: 150,
-    //         category: {title: 'Shawerma'},
-    //         fav: '',
-    //         catId: 3
-    //     },
-    // ]);
 
     const funcHandle = (id, name) => {
         // console.log(id, name);
@@ -85,8 +48,32 @@ const Products = (props) => {
                             <Swiper
                                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay ]}
                                 spaceBetween={12}
-                                slidesPerView={4}
-                                updateOnWindowResize
+                                // slidesPerView={4}
+                                allowTouchMove={false}
+                                breakpoints={{
+                                    400: {
+                                      slidesPerView: 1.2,
+                                    },
+                                    550: {
+                                      slidesPerView: 1.5,
+                                    },
+                                    576: {
+                                      slidesPerView: 1.6,
+                                    },
+                                    768: {
+                                      slidesPerView: 2,
+                                    },
+                                    992: {
+                                      slidesPerView: 2.6,
+                                    },
+                                    1200: {
+                                      slidesPerView: 3.3,
+                                    },
+                                    1400: {
+                                        slidesPerView: 4,
+                                    },
+                                }}
+                                // updateOnWindowResize
                                 navigation={{
                                     prevEl: '.prev-ss-pros',
                                     nextEl: '.next-ss-pros',

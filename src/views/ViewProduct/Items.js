@@ -28,6 +28,10 @@ const Items = (props) => {
                     pagination={{
                         clickable: true,
                     }}
+                    navigation={{
+                        prevEl: '.prev-i-pros',
+                        nextEl: '.next-i-pros',
+                    }}
                     >
                         {
                             props.files && props.files.map((row, index) => {
@@ -35,6 +39,8 @@ const Items = (props) => {
                             })
                         }
                 </Swiper>
+                <div className={`next-i-pros arrow-s-circle ${classes.arrowSsNext}`}><span className={`icon-chevron-right icon ${classes.icon}`}></span></div>
+                <div className={`prev-i-pros arrow-s-circle ${classes.arrowSsPrev}`}><span className={`icon-chevron-left icon ${classes.icon}`}></span></div>
             </div>
 
             <div className={classes.swiperThumbs}>
@@ -44,6 +50,30 @@ const Items = (props) => {
                     onSwiper={setThumbsSwiper}
                     spaceBetween={20}
                     slidesPerView={2}
+                    breakpoints={{
+                        400: {
+                        //   slidesPerView: 1.2,
+                        },
+                        550: {
+                        //   slidesPerView: 1.5,
+                        },
+                        576: {
+                        //   slidesPerView: 1.6,
+                        },
+                        768: {
+                        //   slidesPerView: 2,
+                            spaceBetween: 10  
+                        },
+                        992: {
+                        //   slidesPerView: 2.6,
+                        },
+                        1200: {
+                        //   slidesPerView: 3.3,
+                        },
+                        1400: {
+                            // slidesPerView: 4,
+                        },
+                    }}
                     grid={{
                         rows: 2,
                         fill: "row",

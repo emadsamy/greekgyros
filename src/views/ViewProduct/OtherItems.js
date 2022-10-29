@@ -60,8 +60,32 @@ const OtherItems = (props) => {
                             <Swiper
                                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay ]}
                                 spaceBetween={12}
-                                slidesPerView={4}
+                                // slidesPerView={4}
+                                allowTouchMove={false}
                                 updateOnWindowResize
+                                breakpoints={{
+                                    400: {
+                                      slidesPerView: 1.2,
+                                    },
+                                    550: {
+                                      slidesPerView: 1.5,
+                                    },
+                                    576: {
+                                      slidesPerView: 1.6,
+                                    },
+                                    768: {
+                                      slidesPerView: 2,
+                                    },
+                                    992: {
+                                      slidesPerView: 2.6,
+                                    },
+                                    1200: {
+                                      slidesPerView: 3.3,
+                                    },
+                                    1400: {
+                                        slidesPerView: 4,
+                                    },
+                                }}
                                 navigation={{
                                     prevEl: '.prev-ss-pros',
                                     nextEl: '.next-ss-pros',

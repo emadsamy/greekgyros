@@ -104,9 +104,9 @@ const Header = (props) => {
                                                             <div className={classes.slideDetails}>
                                                                 <div className={classes.slideTitle}>{i18n.language == "ru" ? row.title_ru : row.title_en}</div>
                                                                 <div className={classes.slideAction}>
-                                                                    <button className={`btn main-btn`}>
+                                                                    <NavLink to="/menu" className={`btn main-btn`}>
                                                                             Show Now
-                                                                    </button>
+                                                                    </NavLink>
                                                                 </div>
                                                             </div>
                                                             <div className={`gradient-easing`}></div>
@@ -124,9 +124,9 @@ const Header = (props) => {
                                                             <div className={classes.slideDetails}>
                                                                 <div className={classes.slideTitle}>{i18n.language == "ru" ? row.title_ru : row.title_en}</div>
                                                                 <div className={classes.slideAction}>
-                                                                    <button className={`btn main-btn`}>
+                                                                    <NavLink to="/menu" className={`btn main-btn`}>
                                                                             Show Now
-                                                                    </button>
+                                                                    </NavLink>
                                                                 </div>
                                                             </div>
                                                             <div className={`gradient-easing`}></div>

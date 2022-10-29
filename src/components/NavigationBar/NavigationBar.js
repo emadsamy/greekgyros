@@ -12,14 +12,15 @@ import i18next from "i18next";
 const NavigationBar = (props) => {
     const { t, i18n } = useTranslation();
     const [deliveryModal, setDeliveryModal] = useState(false);
+    const [burger, setBurger] = useState(false);
     const [searchModal, setSearchModal] = useState(false);
     const options = [
-        { value: 'ru', label: <div className={classes.flag}><img src={Ru} /> Russian </div>},
-        { value: 'en', label: <div className={classes.flag}><img src={Us} /> English </div>},
+        { value: 'ru', label: <div className={classes.flag}><img src={Ru} /> <span>Russian</span> </div>},
+        { value: 'en', label: <div className={classes.flag}><img src={Us} /> <span>English</span> </div>},
     ];
     const [selectedOption, setSelectedOption] = useState();
 
-    const changeLanguage = (event) => {
+    const changeLanguage = (event) => { 
         i18n.changeLanguage(event.value);
         const bodyEl = document.body;
         if (event.value == "ru") {
@@ -53,15 +54,23 @@ const NavigationBar = (props) => {
                             </div>
                             <div className={classes.right}>
                                 <div className={`${classes.items} fc`}>
-                                    <div className={classes.item}><NavLink to="/">{t('home-title')}</NavLink></div>
-                                    <div className={classes.item}><NavLink to="/menu">{t('menu-title')}</NavLink></div>
-                                    <div className={classes.item}><NavLink to="/about">{t('about-title')}</NavLink></div>
-                                    <div className={classes.item}><NavLink to="/contact">{t('contact-title')}</NavLink></div>
-                                    <div className={classes.item}>
+                                    <div onClick={() => setBurger(false)} className={`${classes.backdrop} ${burger ? classes.open : ''}`}></div>
+                                    <div className={`${classes.itemsContainer} ${burger ? classes.open : ''} fc`}>
+                                        <div className={`${classes.icTop} fcsb`}>
+                                            <img className={classes.logoImg} src={Logo} alt={'Greek Gyros'} />
+                                            <div onClick={() => setBurger(false)} className={`${classes.close} fcc`}><span className={`icon-cancel ${classes.icon}`}></span></div>
+                                        </div>
+                                        {/* className={(state) => state.isActive ? classes.active : ''} */}
+                                        <div className={classes.item}><NavLink to="/">{t('home-title')}</NavLink></div>
+                                        <div className={classes.item}><NavLink to="/menu">{t('menu-title')}</NavLink></div>
+                                        <div className={classes.item}><NavLink to="/about">{t('about-title')}</NavLink></div>
+                                        <div className={classes.item}><NavLink to="/contact">{t('contact-title')}</NavLink></div>
+                                    </div>
+                                    <div className={`${classes.item} ${classes.itemSearch}`}>
                                         <button onClick={() => setSearchModal(true)} className={`btn ${classes.searchIcon}`}><span className={`icon-search icon ${classes.icon}`}></span></button>
                                     </div>
                                     <div className={classes.item}>
-                                        <button onClick={() => setDeliveryModal(true)} className={`btn main-btn`}><span className={`icon-delivery icon`}></span> {t('delivery-title')}</button>
+                                        <button onClick={() => setDeliveryModal(true)} className={`btn main-btn ${classes.delBtn}`}><span className={`icon-delivery icon`}></span> {t('delivery-title')}</button>
                                     </div>
                                     {/* <div>
                                         {t('welcome')}
@@ -76,6 +85,11 @@ const NavigationBar = (props) => {
                                             defaultValue={i18next.language == "ru" ? options[0] : options[1]}
                                              />  
                                     </div>
+                                    <div onClick={() => setBurger(!burger)} className={`${classes.burger} ${burger ? classes.open : ''}`}>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>  
                                 </div>
                             </div>
                         </div>

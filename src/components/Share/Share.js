@@ -41,9 +41,9 @@ const Share = (props) => {
         <>
             <Helmet>
                 <meta property="og:type" content="website" />
-                {/* <meta property="og:url" content={window.location.pathname} /> */}
+                <meta property="og:url" content={window.location.href} />
                 <meta property="og:title" content={props.title} />
-                <meta property="og:description" content="this is description" />
+                <meta property="og:description" content={props.description} />
                 <meta property="og:image" content={props.img} />
                 <meta property="og:image:width" content="400" />
                 <meta property="og:image:height" content="400" />
@@ -68,7 +68,7 @@ const Share = (props) => {
                         </button>
 
                         <button onClick={whatsappHandler} className={`btn ${classes.btn}`}>
-                            <img className={`img-fluid ${classes.imgBtn}`} src={Whatsapp} alt={'Clipboard'} />
+                            <img className={`img-fluid ${classes.imgBtn}`} src={Whatsapp} alt={'Whatsapp'} />
                             Whatsapp
                         </button>
 
@@ -86,7 +86,7 @@ const Share = (props) => {
                             description={'this is description'}
                             className={`btn ${classes.btn}`}
                         >
-                            <img className={`img-fluid ${classes.imgBtn}`} src={Facebook} alt={'Clipboard'} />
+                            <img className={`img-fluid ${classes.imgBtn}`} src={Facebook} alt={'Facebook'} />
                             Facebook
                         </FacebookShareButton>
                     </div>

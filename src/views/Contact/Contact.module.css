@@ -38,7 +38,7 @@
     height: 500px;
 }
 .detailsBg {
-    padding: 80px;
+    padding: 80px 0;
     background: #2282c6;
 }
 .subTitle {
@@ -74,7 +74,7 @@
     color: #ebe4e4;
     font-size: 17px;
     width: auto;
-    display: inline-flex;
+    display: inline-flex !important;
 }
 .liRow:hover {
     color: #fff;
@@ -111,4 +111,87 @@
 .loading {
     color: #fff;
     font-size: 16px;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    
+}
+
+@media (max-width: 767.98px) {
+    .mainTitle {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .map iframe {
+        height: 400px;
+    }
+    .detailsBg {
+        padding: 70px 5px;
+    }
+    .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .locationDetails {
+        padding-top: 50px;
+    }
+    .form {
+        padding: 45px 25px;
+    }
+    .subTitle2 {
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+    .locationIcon {
+        font-size: 19px;
+        width: 20px;
+    }
+    .lrValue {
+        font-size: 16px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    
+}
+
+@media (max-width: 991.98px) {
+
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .detailsBg {
+        padding: 80px 0;
+    }
+    .form {
+        padding: 45px 25px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .detailsBg {
+        padding: 80px 0;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+}
+
+@media (min-width: 1400px) {
+
 }

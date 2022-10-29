@@ -63,7 +63,7 @@
     color: #666;
     font-size: 16px;
     width: auto;
-    display: inline-flex;
+    display: inline-flex !important;
 }
 .liRow:hover {
     color: #000;
@@ -77,4 +77,84 @@
     position: relative;
     top: 2px;
     width: 22px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    
+}
+
+@media (max-width: 767.98px) {
+    .copyright {
+        padding: 20px 20px;
+        font-size: 15px;
+    }
+    .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 30px;
+    }
+    .footer {
+        padding: 70px 0 40px;
+    }
+    .footerTitle {
+        margin-bottom: 13px;
+    }
+    .logoImg {
+        width: 100px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media (max-width: 991.98px) {
+    .grid {
+        gap: 20px;
+    }
+    .footerTitle {
+        font-size: 23px;
+        margin-bottom: 17px;
+    }
+    .footer {
+        padding: 80px 0 50px;
+    }
+    .copyright {
+        padding: 28px 20px;
+        font-size: 16px;
+    }
+    .categories {
+        padding: 80px 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+@media (max-width: 1199.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .grid {
+        grid-template-columns: 0.6fr 0.8fr 0.8fr 1.4fr;
+        gap: 25px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+}
+
+@media (min-width: 1400px) {
+
 }
