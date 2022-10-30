@@ -35,7 +35,7 @@ const Items = (props) => {
                     >
                         {
                             props.files && props.files.map((row, index) => {
-                                return <SwiperSlide><img className={`img-fluid ${classes.slideItemImg}`} src={row.image}  /></SwiperSlide>
+                                return <SwiperSlide key={index}><img className={`img-fluid ${classes.slideItemImg}`} src={row.image}  /></SwiperSlide>
                             })
                         }
                 </Swiper>
@@ -83,8 +83,8 @@ const Items = (props) => {
                     >
                         {
                             props.files && props.files.map((row, index) => {
-                                return <SwiperSlide className={classes.itemSlideThumb}>
-                                    <img className={`img-fluid ${classes.imgSlThumb}`} src={row.image} />
+                                return <SwiperSlide key={index} className={classes.itemSlideThumb}>
+                                    <img className={`img-fluid ${classes.imgSlThumb}`} src={row.image} alt="thumbs" />
                                 </SwiperSlide>
                             })
                         }

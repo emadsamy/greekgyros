@@ -26,14 +26,14 @@ const Menu = (props) => {
     const [isActive, setActive] = useState(catId ? catId : 0);
     const onActiveClass = (id) => {
         setActive(id);
-        console.log(id);
+        // console.log(id);
         productsHandler(id);
     };
     const funcHandle = (id, name) => {
-        console.log(id, name);
+        // console.log(id, name);
     }
     useState(() => {
-        console.log(isActive);
+        // console.log(isActive);
         productsHandler(isActive);
     }, [isActive]);
 
@@ -55,76 +55,14 @@ const Menu = (props) => {
             setPros(response.data.data);
             setProsCount(response.data.count);
             setLoading(false);
-            console.log(response.data);
+            // console.log(response.data);
         })
         .catch((error) => {
-          console.log(error);
+        //   console.log(error);
           setLoading(false);
         });
     }
 
-    // const [categories, setCategories] = useState([
-    //     {
-    //         id: 1,
-    //         title: 'Food',
-    //         type: 'food',
-    //     },
-    //     {
-    //         id: 2,
-    //         title: 'Drinks',
-    //         type: 'drinks',
-    //     },
-    //     {
-    //         id: 3,
-    //         title: 'Food',
-    //         type: 'food',
-    //     },
-    //     {
-    //         id: 4,
-    //         title: 'Drinks',
-    //         type: 'drinks',
-    //     },
-    //     {
-    //         id: 5,
-    //         title: 'Food',
-    //         type: 'food',
-    //     },
-    // ]);
-
-    // const [items, setItems] = useState([
-    //     {
-    //         id: 1,
-    //         title: 'Shawerma Sandwich',
-    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-    //         images: [Coffee, FoodPro, Pizza],
-    //         price: 120,
-    //         price_ru: 150,
-    //         category: {title: 'Food'},
-    //         fav: '',
-    //     },
-
-    //     {
-    //         id: 2,
-    //         title: 'Falafel',
-    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-    //         images: [FoodPro, Coffee, Pizza],
-    //         price: 120,
-    //         price_ru: 150,
-    //         category: {title: 'Drinks'},
-    //         fav: 'Best!'
-    //     },
-
-    //     {
-    //         id: 3,
-    //         title: 'Pizza & Pasta',
-    //         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-    //         images: [FoodPro, Food, Coffee],
-    //         price: 120,
-    //         price_ru: 150,
-    //         category: {title: 'Shawerma'},
-    //         fav: ''
-    //     },
-    // ]);
     return (
         <>
             <Helmet>
@@ -166,7 +104,8 @@ const Menu = (props) => {
                                     <div className={classes.gridPros}>
                                     {
                                         pros.map((row, index) => {
-                                            return <Product 
+                                            return <Product
+                                                key={index} 
                                                 onSelectLanguage={funcHandle} 
                                                 id={row.id} 
                                                 title_ru={row.title_ru} 

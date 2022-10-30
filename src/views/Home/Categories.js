@@ -21,33 +21,6 @@ const Categories = (props) => {
     }, [dispatch]);
     const categories = useSelector((state) => state.categories);
 
-    // const [categories, setCategories] = useState([
-    //     {
-    //         id: 1,
-    //         title: 'Food',
-    //         type: 'food',
-    //     },
-    //     {
-    //         id: 2,
-    //         title: 'Drinks',
-    //         type: 'drinks',
-    //     },
-    //     {
-    //         id: 3,
-    //         title: 'Food',
-    //         type: 'food',
-    //     },
-    //     {
-    //         id: 4,
-    //         title: 'Drinks',
-    //         type: 'drinks',
-    //     },
-    //     {
-    //         id: 5,
-    //         title: 'Food',
-    //         type: 'food',
-    //     },
-    // ]);
     return (
         <>
             <div className={classes.categories}>
@@ -59,7 +32,7 @@ const Categories = (props) => {
                     <div className={classes.catsGrid}>
                         {
                             categories.map((row, index) => {
-                                return <NavLink to="/menu" state={{catId: row.id}}>
+                                return <NavLink key={index} to="/menu" state={{catId: row.id}}>
                                     <Category 
                                         key={index} 
                                         id={row.id} 

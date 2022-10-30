@@ -81,8 +81,8 @@ const Products = (props) => {
                                 pagination={{ 
                                     clickable: true, 
                                 }}
-                                onSwiper={(swiper) => console.log(swiper)}
-                                onSlideChange={() => console.log('slide change')}
+                                // onSwiper={(swiper) => console.log(swiper)}
+                                // onSlideChange={() => console.log('slide change')}
                                 loop={false}
                                 autoplay={{
                                     delay: 3500,
@@ -93,7 +93,7 @@ const Products = (props) => {
                             >
                                 {
                                     products.map((row, index) => {
-                                        return <SwiperSlide className={classes.swipersss}>
+                                        return <SwiperSlide key={index} className={classes.swipersss}>
                                             <Product 
                                                 onSelectLanguage={funcHandle} 
                                                 id={row.id} 

@@ -4,24 +4,49 @@ import {Routes, Route} from 'react-router-dom';
 import classes from './App.module.css';
 import { Home, Error404, Contact, Menu, ViewProduct } from './views/index';
 import { ScrollToTop } from './components/index';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 function App() {
-
-  //creating IP state
   const [ip, setIP] = useState('');
+  const { t, i18n } = useTranslation();
 
-  //creating function to load ip address from the API
-  const getData = async () => {
+  const getIp = async () => {
     const res = await axios.get('https://geolocation-db.com/json/')
-    console.log(res.data);
-    setIP(res.data.IPv4)
+    // console.log(res.data);
+    setIP(res.data);
   }
   
   useEffect( () => {
-    //passing getData method to the lifecycle method
-    getData()
+    getIp();
+  }, []);
 
-  }, [])
+  useEffect( () => {
+    visitorHandler();
+  }, [ip]);
+
+  function visitorHandler () {
+    const options = {
+        url: window.baseURL + "/visitors",
+        method: "POST",
+        data: {
+            ip: ip.IPv4,
+            country_code: ip.country_code,
+            country_name: ip.country_name,
+            lat: ip.latitude,
+            lng: ip.longitude,
+            language: i18n.language
+        },
+    };
+
+    axios(options)
+    .then((res) => {
+        // console.log(res);
+    })
+    .catch((err) => {
+      // console.log(err);
+    });
+}
 
 
   return (

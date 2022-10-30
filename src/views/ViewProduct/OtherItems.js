@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {Route, Switch, NavLink, Navigate, useLocation} from 'react-router-dom';
+import {Route, Switch, NavLink, Navigate, useLocation, useParams} from 'react-router-dom';
 import axios from 'axios';
 import classes from './ViewProduct.module.css';
 import { Product } from '../../components/index';
@@ -18,13 +18,14 @@ import { Loading, LoadingGrow } from '../../components/index';
 const OtherItems = (props) => {
 
     const location = useLocation();
-    const { proId } = location.state;
+    const {id} = useParams();
+    // const { proId } = location.state;
     const [loading, setLoading] = useState(false);
     const [product, setProduct] = useState([]);
     
     useEffect(() => {
-        productsHandler(proId);
-    }, [proId]);
+        productsHandler(id);
+    }, [id]);
 
     function productsHandler(id)  {
         setLoading(true);
@@ -45,7 +46,7 @@ const OtherItems = (props) => {
     }
 
     const funcHandle = (id, name) => {
-        console.log(id, name);
+        // console.log(id, name);
     }
 
     return (
@@ -93,8 +94,8 @@ const OtherItems = (props) => {
                                 pagination={{ 
                                     clickable: true, 
                                 }}
-                                onSwiper={(swiper) => console.log(swiper)}
-                                onSlideChange={() => console.log('slide change')}
+                                // onSwiper={(swiper) => console.log(swiper)}
+                                // onSlideChange={() => console.log('slide change')}
                                 loop={false}
                                 autoplay={{
                                     delay: 3500,
@@ -105,7 +106,7 @@ const OtherItems = (props) => {
                             >
                                 {
                                     product.map((row, index) => {
-                                        return <SwiperSlide className={classes.swipersss}>
+                                        return <SwiperSlide key={index} className={classes.swipersss}>
                                             <Product 
                                                 onSelectLanguage={funcHandle} 
                                                 id={row.id} 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Switch, NavLink, Navigate, useLocation} from 'react-router-dom';
+import {Route, Switch, NavLink, Navigate, useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import classes from './ViewProduct.module.css';
 import { NavigationBar, Footer } from '../../components/index';
@@ -20,10 +20,11 @@ import * as actions from "../../store/index";
 const ViewProduct = (props) => {
     const { t, i18n } = useTranslation();
     const location = useLocation();
-    const { proTitle } = location.state;
-    const { proDesc } = location.state;
-    const { proId } = location.state;
-    const { proImage } = location.state;
+    const {id} = useParams();
+    // const { proTitle } = location.state;
+    // const { proDesc } = location.state;
+    // const { proId } = location.state;
+    // const { proImage } = location.state;
     const [shareModal, setShareModal] = useState(false);
     const [deliveryModal, setDeliveryModal] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -36,8 +37,8 @@ const ViewProduct = (props) => {
     const settings = useSelector((state) => state.settings);
 
     useEffect(() => {
-        productsHandler(proId);
-    }, [proId]);
+        productsHandler(id);
+    }, [id]);
 
     function productsHandler(id)  {
         setLoading(true);
@@ -50,7 +51,7 @@ const ViewProduct = (props) => {
         .then((response) => {
             setProduct(response.data.data);
             setLoading(false);
-            console.log(response.data.data);
+            // console.log(response.data.data);
         })
         .catch((error) => {
           alert(error);

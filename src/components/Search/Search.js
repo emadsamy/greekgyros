@@ -6,9 +6,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import Loading from '../../assets/img/icons/loading-blue.svg';
 
 const Search = (props) => {
     const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(false);
     const [toggleSearch, setToggleSearch] = useState(false);
     const [data, setData] = useState([]);
     const [dataCount, setDataCount] = useState('');
@@ -18,11 +20,12 @@ const Search = (props) => {
     const { t, i18n } = useTranslation();
 
     const searchHandler = (e) => {
+        setLoading(true);
         setSearch(e.target.value);
         if (e.target.value.length > 0) {
             setToggleSearch(true);
         } else {
-            setToggleSearch(0);
+            setToggleSearch(false);
         }
 
         const options = {
@@ -36,14 +39,13 @@ const Search = (props) => {
 
         axios(options)
         .then((res) => {
-            console.log(res.data);
             setData(res.data.data);
             setDataCount(res.data.count);
+            setLoading(false);
         })
         .catch((err) => {
             alert(err);
-            // setLoading(false);
-            // setSuccess('');
+            setLoading(false);
         });
     }
 
@@ -64,13 +66,14 @@ const Search = (props) => {
                     {/* <h4>Centered Modal</h4> */}
                     <div className={`${classes.searchGroup} form-group-row`}>
                         {/* <label className={'fgr-label'}>Search</label> */}
-                        <div className={'fgrinp'}>
+                        <div className={`fgrinp fcsb`}>
                             <input 
                                 className={`fgr-input`} 
                                 type="text" 
                                 placeholder="what do you want ..."
                                 value={search}
                                 onChange={searchHandler} />
+                                {loading ? <img className={`img-fluid ${classes.imgLoading}`} src={Loading} alt="Loading" /> : '' }
                                 {
                                     toggleSearch ? <div className={classes.searchList}>
                                     <div className={classes.searchResult}>
@@ -79,7 +82,7 @@ const Search = (props) => {
                                                 <div className={classes.searchNoResults}>No Results</div> 
                                                 : data && data.map((row, index) => {
                                                 const title = i18n.language == 'ru' ? row.title_ru : row.title_en;
-                                                return <div key={index} className={classes.searchRow}>
+                                                return <div key={index} onClick={() => setShow(false)} className={classes.searchRow}>
                                                     <NavLink 
                                                         to={`/view-product/${title.replace(/\s+/g, '-').toLowerCase()}/${row.id}`}
                                                         state={{

@@ -57,8 +57,8 @@ const Product = (props) => {
                                 }}
                                 pagination={{ clickable: true }}
                                 // pagination={{ el: ".swiper-pagination-home", clickable: true }}
-                                onSwiper={(swiper) => console.log(swiper)}
-                                onSlideChange={() => console.log('slide change')}
+                                // onSwiper={(swiper) => console.log(swiper)}
+                                // onSlideChange={() => console.log('slide change')}
                                 loop={false}
                                 // autoplay={{
                                 //     delay: 3500,
@@ -69,7 +69,7 @@ const Product = (props) => {
                             >
                                 {
                                     props.files.map((row, index) => {
-                                        return <SwiperSlide className={classes.swiperImgs}>
+                                        return <SwiperSlide key={index} className={classes.swiperImgs}>
                                                     <div className={classes.slideImg}>
                                                         <img 
                                                             className={`img-fluid ${classes.proImg}`} 
@@ -94,10 +94,10 @@ const Product = (props) => {
                         <div className={classes.action}>
                             <NavLink to={`/view-product/${props.title_ru.replace(/\s+/g, '-').toLowerCase()}/${props.id}`} 
                                     state={{ 
-                                        proTitle: i18n.language == "ru" ? props.title_ru : props.title_en, 
-                                        proId: props.id, 
-                                        proImage: props.files[0].image,
-                                        proDesc: i18n.language == "ru" ? props.description_ru : props.description_en
+                                        // proTitle: i18n.language == "ru" ? props.title_ru : props.title_en, 
+                                        // proId: props.id, 
+                                        // proImage: props.files[0].image,
+                                        // proDesc: i18n.language == "ru" ? props.description_ru : props.description_en
                                     }} 
                                     className={`btn main-btn`}>
                                         View More

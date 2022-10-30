@@ -38,7 +38,7 @@ const Benefits = () => {
         <div className={classes.benefitsGrid}>
           {rows.map((row, index) => {
             return (
-              <div className={classes.benefitCard}>
+              <div key={index} className={classes.benefitCard}>
                 <img
                   src={row.flag}
                   className={`img-fluid ${classes.benefitCardFlag}`}

@@ -42,31 +42,6 @@ const Header = (props) => {
         });
     }, []);
 
-    // const [items, setItems] = useState([
-    //     {
-    //         id: 1,
-    //         title: 'Would you like a cup of delicious Coffe? ',
-    //         type: 'image',
-    //         image: Coffee,
-    //         action: true
-    //     },
-
-    //     {
-    //         id: 2,
-    //         title: 'Would you like a food delicious? ',
-    //         type: 'image',
-    //         image: Food,
-    //         action: true
-    //     },
-
-    //     {
-    //         id: 3,
-    //         title: 'Would you like a pizza? ',
-    //         type: 'image',
-    //         image: Pizza,
-    //         action: true
-    //     },
-    // ]);
     return (
         <>
             {
@@ -84,8 +59,8 @@ const Header = (props) => {
                                 }}
                                 pagination={{ clickable: true }}
                                 // pagination={{ el: ".swiper-pagination-home", clickable: true }}
-                                onSwiper={(swiper) => console.log(swiper)}
-                                onSlideChange={() => console.log('slide change')}
+                                // onSwiper={(swiper) => console.log(swiper)}
+                                // onSlideChange={() => console.log('slide change')}
                                 loop={false}
                                 autoplay={{
                                     delay: 6000,
@@ -97,7 +72,7 @@ const Header = (props) => {
                                 {
                                     slider.map((row, index) => {
                                         return (
-                                            <SwiperSlide className={classes.swiperSlide}>
+                                            <SwiperSlide key={index} className={classes.swiperSlide}>
                                                 {
                                                     row.type == 'image' ?
                                                         <div style={{ backgroundImage: `url(${row.image})` }} className={classes.slideCardImg}>

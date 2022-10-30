@@ -41,6 +41,9 @@
     background: #ddd;
 }
 .searchNoResults {
-    text-align: center;
-    
+    text-align: center;   
+}
+.imgLoading {
+    width: 25px !important;
+    height: 25px !important;
 }
