@@ -15,26 +15,27 @@ function App() {
     const res = await axios.get('https://geolocation-db.com/json/')
     // console.log(res.data);
     setIP(res.data);
+    visitorHandler(res.data);
   }
   
   useEffect( () => {
     getIp();
   }, []);
 
-  useEffect( () => {
-    visitorHandler();
-  }, [ip]);
+  // useEffect( () => {
+  //   visitorHandler();
+  // }, [ip]);
 
-  function visitorHandler () {
+  function visitorHandler (data) {
     const options = {
         url: window.baseURL + "/visitors",
         method: "POST",
         data: {
-            ip: ip.IPv4,
-            country_code: ip.country_code,
-            country_name: ip.country_name,
-            lat: ip.latitude,
-            lng: ip.longitude,
+            ip: data.IPv4,
+            country_code: data.country_code,
+            country_name: data.country_name,
+            lat: data.latitude,
+            lng: data.longitude,
             language: i18n.language
         },
     };
@@ -42,6 +43,7 @@ function App() {
     axios(options)
     .then((res) => {
         // console.log(res);
+        // console.log('time');
     })
     .catch((err) => {
       // console.log(err);
@@ -50,16 +52,18 @@ function App() {
 
 
   return (
-    <div className={classes.wrapperContainer}>
-      <ScrollToTop />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/view-product/:title/:id" element={<ViewProduct />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
-    </div>
+    <>
+      <div className={classes.wrapperContainer}>
+        <ScrollToTop />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/view-product/:title/:id" element={<ViewProduct />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 

@@ -11,6 +11,7 @@ import Coffee from '../../assets/img/menu/coffee.jpg';
 import Food from '../../assets/img/menu/food.jpeg';
 import Pizza from '../../assets/img/menu/pizza.jpeg';
 import FoodBg from '../../assets/img/food_bg.jpg';
+import Wave from '../../assets/img/icons/wave.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay  } from 'swiper';
 import 'swiper/css';

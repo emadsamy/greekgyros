@@ -62,10 +62,10 @@ const Header = (props) => {
                                 // onSwiper={(swiper) => console.log(swiper)}
                                 // onSlideChange={() => console.log('slide change')}
                                 loop={false}
-                                autoplay={{
-                                    delay: 6000,
-                                    disableOnInteraction: false
-                                }} 
+                                // autoplay={{
+                                //     delay: 6000,
+                                //     disableOnInteraction: false
+                                // }} 
                                 speed={800}
                                 className={classes.swiperHeader}
                             >

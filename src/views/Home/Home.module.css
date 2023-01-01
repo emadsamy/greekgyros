@@ -139,7 +139,7 @@
     transition: all 0.2s ease-in-out;
 }
 .products {
-    background: #ccc;
+    /* background: #ccc; */
     padding: 80px 0;
     background-size: cover;
     background-position: center left;
@@ -176,9 +176,12 @@
         align-items: flex-end;
         min-height: 380px;
     }
+    .videoSrc {
+        height: 380px !important;
+    }
     .slideDetails {
         padding: 50px 40px;
-        position: static;
+        /* position: static; */
         bottom: auto;
         left: auto;
         text-align: center;
@@ -226,8 +229,8 @@
 @media (min-width: 768px) and (max-width: 991.98px) {
     .slideTitle {
         line-height: 1.2;
-        font-size: 35px;
-        margin-bottom: 29px;
+        font-size: 30px;
+        margin-bottom: 20px;
     }
     .benefitsGrid {
         gap: 20px;
@@ -245,8 +248,11 @@
     .slideCardImg {
         min-height: 460px;
     }
+    .videoSrc {
+        height: 460px !important;
+    }
     .slideDetails {
-        padding: 40px 50px;
+        padding: 10px 50px;
     }
     .benefitsContainer {
         padding: 80px 0;
@@ -271,6 +277,9 @@
     .catsGrid {
         grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 10px;
+    }
+    .slideDetails {
+        padding: 10px 50px;
     }
 }
 

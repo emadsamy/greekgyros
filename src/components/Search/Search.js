@@ -24,29 +24,28 @@ const Search = (props) => {
         setSearch(e.target.value);
         if (e.target.value.length > 0) {
             setToggleSearch(true);
+            const options = {
+                url: window.baseURL + "/search",
+                method: "POST",
+                data: {
+                    search: search,
+                    lang: i18n.language
+                },
+            };
+    
+            axios(options)
+            .then((res) => {
+                setData(res.data.data);
+                setDataCount(res.data.count);
+                setLoading(false);
+            })
+            .catch((err) => {
+                alert(err);
+                setLoading(false);
+            });
         } else {
             setToggleSearch(false);
         }
-
-        const options = {
-            url: window.baseURL + "/search",
-            method: "POST",
-            data: {
-                search: search,
-                lang: i18n.language
-            },
-        };
-
-        axios(options)
-        .then((res) => {
-            setData(res.data.data);
-            setDataCount(res.data.count);
-            setLoading(false);
-        })
-        .catch((err) => {
-            alert(err);
-            setLoading(false);
-        });
     }
 
     return (
@@ -72,7 +71,7 @@ const Search = (props) => {
                                 type="text" 
                                 placeholder="what do you want ..."
                                 value={search}
-                                onChange={searchHandler} />
+                                onInput={searchHandler} />
                                 {loading ? <img className={`img-fluid ${classes.imgLoading}`} src={Loading} alt="Loading" /> : '' }
                                 {
                                     toggleSearch ? <div className={classes.searchList}>
