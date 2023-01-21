@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/greekgyros/static/css/main.e2ce2642.css",
+    "main.js": "/greekgyros/static/js/main.fae1cbb8.js",
+    "static/js/787.d94aebcc.chunk.js": "/greekgyros/static/js/787.d94aebcc.chunk.js",
+    "static/media/coffee.jpg": "/greekgyros/static/media/coffee.7e99713484cf8b5ec789.jpg",
+    "static/media/drinks.png": "/greekgyros/static/media/drinks.1573e35c9b8c15c7a670.png",
+    "static/media/food_bg.jpg": "/greekgyros/static/media/food_bg.d37abd887a2ed0aefe9d.jpg",
+    "static/media/food.png": "/greekgyros/static/media/food.a8515dea7d38d8554663.png",
+    "static/media/menu.png": "/greekgyros/static/media/menu.07aa95c943daca5e6bd9.png",
+    "static/media/logo.png": "/greekgyros/static/media/logo.e9a28e97f2768956ff06.png",
+    "static/media/pizza.jpeg": "/greekgyros/static/media/pizza.055a489271ec66e8def1.jpeg",
+    "static/media/error404.png": "/greekgyros/static/media/error404.097cecd2afc83da9e632.png",
+    "static/media/food.jpeg": "/greekgyros/static/media/food.a1ee8e33a174d3be7ce0.jpeg",
+    "static/media/icomoon.svg?nbcvh2": "/greekgyros/static/media/icomoon.a5f9aba098d4dba5be5c.svg",
+    "static/media/wave.svg": "/greekgyros/static/media/wave.46ba7c84d2db9e2f10c9e23a3d3822cd.svg",
+    "static/media/icomoon.eot?nbcvh2": "/greekgyros/static/media/icomoon.453cc23e98b7e559df99.eot",
+    "static/media/icomoon.woff?nbcvh2": "/greekgyros/static/media/icomoon.47333d21899b6c607916.woff",
+    "static/media/icomoon.ttf?nbcvh2": "/greekgyros/static/media/icomoon.6edfa652df44e1cb32b5.ttf",
+    "static/media/us.svg": "/greekgyros/static/media/us.d8b63826d8d60830324e70ab0b5452f0.svg",
+    "static/media/whatsapp.svg": "/greekgyros/static/media/whatsapp.4c7eb2de033e6b6205fbc3babee75686.svg",
+    "static/media/messenger.svg": "/greekgyros/static/media/messenger.af1fc82cff31ae1007909d2d02fb8e44.svg",
+    "index.html": "/greekgyros/index.html",
+    "static/media/loading-blue.svg": "/greekgyros/static/media/loading-blue.5db955fed1ac2c8d8f8a5d15018ca7c0.svg",
+    "static/media/loading.svg": "/greekgyros/static/media/loading.4b14935128d2046938ce0720f9a442a0.svg",
+    "static/media/copy.svg": "/greekgyros/static/media/copy.9c41a01b77332b9476565d11744f6255.svg",
+    "static/media/facebook-1.svg": "/greekgyros/static/media/facebook-1.d32c3b0775c3ca4ef60be75dc54234ef.svg",
+    "static/media/getFetch.cjs": "/greekgyros/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "static/media/ru.svg": "/greekgyros/static/media/ru.7e04b988972d41f5c36902a31b818119.svg",
+    "main.e2ce2642.css.map": "/greekgyros/static/css/main.e2ce2642.css.map",
+    "main.fae1cbb8.js.map": "/greekgyros/static/js/main.fae1cbb8.js.map",
+    "787.d94aebcc.chunk.js.map": "/greekgyros/static/js/787.d94aebcc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2ce2642.css",
+    "static/js/main.fae1cbb8.js"
+  ]
+}
