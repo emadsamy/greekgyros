@@ -10,7 +10,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./i18n";
 
-window.baseURL = "http://127.0.0.1:8000/api/v1";
+// window.baseURL = "http://127.0.0.1:8000/api/v1";
+window.baseURL = "https://greekgyros.directorstudio.me/public/api/v1";
+// window.baseURL = process.env.NODE_ENV !== "production" ? "http://127.0.0.1:8000/api/v1" : "https://greekgyros.directorstudio.me/public/api/v1";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
