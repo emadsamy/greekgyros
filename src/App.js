@@ -59,7 +59,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/view-product/:title/:id" element={<ViewProduct />} />
-          <Route path="/error" element={<Error404 />} />
+          <Route path="/*" element={<Error404 />} />
         </Routes>
       </div>
     </>
