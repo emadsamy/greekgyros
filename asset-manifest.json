@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/greekgyros/static/css/main.e2ce2642.css",
-    "main.js": "/greekgyros/static/js/main.9a92b3f4.js",
+    "main.css": "/greekgyros/static/css/main.7409eeb6.css",
+    "main.js": "/greekgyros/static/js/main.f3d2273d.js",
     "static/js/787.d94aebcc.chunk.js": "/greekgyros/static/js/787.d94aebcc.chunk.js",
     "static/media/coffee.jpg": "/greekgyros/static/media/coffee.7e99713484cf8b5ec789.jpg",
     "static/media/drinks.png": "/greekgyros/static/media/drinks.1573e35c9b8c15c7a670.png",
@@ -27,12 +27,12 @@
     "static/media/facebook-1.svg": "/greekgyros/static/media/facebook-1.d32c3b0775c3ca4ef60be75dc54234ef.svg",
     "static/media/getFetch.cjs": "/greekgyros/static/media/getFetch.40f37ddea2378391108f.cjs",
     "static/media/ru.svg": "/greekgyros/static/media/ru.7e04b988972d41f5c36902a31b818119.svg",
-    "main.e2ce2642.css.map": "/greekgyros/static/css/main.e2ce2642.css.map",
-    "main.9a92b3f4.js.map": "/greekgyros/static/js/main.9a92b3f4.js.map",
+    "main.7409eeb6.css.map": "/greekgyros/static/css/main.7409eeb6.css.map",
+    "main.f3d2273d.js.map": "/greekgyros/static/js/main.f3d2273d.js.map",
     "787.d94aebcc.chunk.js.map": "/greekgyros/static/js/787.d94aebcc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2ce2642.css",
-    "static/js/main.9a92b3f4.js"
+    "static/css/main.7409eeb6.css",
+    "static/js/main.f3d2273d.js"
   ]
 }
