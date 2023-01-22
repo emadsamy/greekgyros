@@ -19,7 +19,7 @@ const store = configureStore({ reducer: reducer, composeEnhancers });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.NODE_ENV === "production" ? process.env.PUBLIC_URL : ""}>
       <Suspense fallback={"Loading..."}>
         <App />
       </Suspense>
